@@ -1,0 +1,23 @@
+[theme]
+# Base theme
+base = "light"
+
+# Primary color for buttons and interactive elements (purple from your CSS)
+primaryColor = "#9D4EDD"
+
+# Text color (matching your CSS)
+textColor = "#272F46"
+
+backgroundColor = "#F6F5F4"
+
+font = "Itim, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+
+[[theme.fontFaces]]
+family = "Itim"
+url = "https://fonts.googleapis.com/css2?family=Itim&display=swap"
+
+
+[server]
+port = 8501
+enableStaticServing = true
+
