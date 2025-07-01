@@ -139,7 +139,7 @@ with st.container():
                 imagesizer = st.columns([1, 1])
                 with imagesizer[1]:
                     #set z-index to 1000
-                    st.markdown(f"<img src='static/Images/Boatyard.png' style='margin-top: -250px; margin-left: 50px;'>", unsafe_allow_html=True)
+                    st.markdown(f"<img src='app/static/Images/Boatyard.png' style='margin-top: -250px; margin-left: 50px;'>", unsafe_allow_html=True)
 
 
 st.container(border = False, height = 32)
@@ -170,7 +170,7 @@ with col1:
                 content_cols = st.columns([1,10, 1])
                 with content_cols[1]:
                     st.container(border = False, height = 45)
-                    st.markdown(f"<img src='{Base_url}/app/static/Images/PocketTutor.png' style='margin-top: 0px; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
+                    st.markdown(f"<img src='app/static/Images/PocketTutor.png' style='margin-top: 0px; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
         
 with col2:
     with stylable_container(
@@ -181,7 +181,7 @@ with col2:
                 st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>Infinite Characters</h1>", unsafe_allow_html=True)
                 st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>Negotiate hostage transfers with the chieftain of the northern tribes, or  just order a coffee. Level up your language skills without realising.</p>", unsafe_allow_html=True)
                 st.container(border = False, height = 35)
-                st.image("static/Images/Characters.png")
+                st.markdown(f"<img src='app/static/Images/Characters.png' style='margin-top: 0px; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
 
 
 
@@ -189,7 +189,7 @@ with col2:
 # --- WE MAKE SPEAKERS ---
 with st.container():
     st.container(border = False, height = 100)
-    st.markdown(f"<img src='{Base_url}/app/static/Images/Lorals.png' style='margin-top: 0px; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
+    st.markdown(f"<img src='app/static/Images/Lorals.png' style='margin-top: 0px; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
     cols = st.columns([1, 1.3, 1])
     
     with cols[1]:
@@ -220,7 +220,7 @@ with col1:
         key="container_with_border4",
         css_styles=cssstyles):
         st.container(border = False, height = upperpad)
-        st.markdown(f"<img src='{Base_url}/app/static/Images/FromStartToFluent.png' style='margin-top: 0px; height: 30px;'>", unsafe_allow_html=True)
+        st.markdown(f"<img src='app/static/Images/FromStartToFluent.png' style='margin-top: 0px; height: 30px;'>", unsafe_allow_html=True)
         st.container(border = False, height = lowerpad)
         
         st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>From start to fluent</h1>", unsafe_allow_html=True)
@@ -230,7 +230,7 @@ with col2:
         key="container_with_border5",
         css_styles=cssstyles):
         st.container(border = False, height = upperpad)
-        st.markdown(f"<img src='{Base_url}/app/static/Images/Missions.png' style='margin-top: 0px; height: 30px;'>", unsafe_allow_html=True)
+        st.markdown(f"<img src='app/static/Images/Missions.png' style='margin-top: 0px; height: 30px;'>", unsafe_allow_html=True)
         st.container(border = False, height = lowerpad)
         st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>Missions</h1>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>Get your own mission or ask around! Characters will throw you into memorable encounters right from the start.</p>", unsafe_allow_html=True)
@@ -239,7 +239,7 @@ with col3:
         key="container_with_border6",
         css_styles=cssstyles):
         st.container(border = False, height = upperpad)
-        st.markdown(f"<img src='{Base_url}/app/static/Images/EndlessEncounters.png' style='margin-top: 0px; height: 30px;'>", unsafe_allow_html=True)
+        st.markdown(f"<img src='app/static/Images/EndlessEncounters.png' style='margin-top: 0px; height: 30px;'>", unsafe_allow_html=True)
         st.container(border = False, height = lowerpad)
         st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>Endless encounters</h1>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>Whether you're starting a cult or a new job, everything is generated just for you.</p>", unsafe_allow_html=True)
@@ -248,7 +248,7 @@ with col4:
         key="container_with_border7",
         css_styles=cssstyles):
         st.container(border = False, height = upperpad)
-        st.markdown(f"<img src='{Base_url}/app/static/Images/Leaderboard.png' style='margin-top: 0px; height: 30px;'>", unsafe_allow_html=True)
+        st.markdown(f"<img src='app/static/Images/Leaderboard.png' style='margin-top: 0px; height: 30px;'>", unsafe_allow_html=True)
         st.container(border = False, height = lowerpad)
         st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>Leaderboard</h1>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>Compete on a global leaderboard for in-game rewards!</p>", unsafe_allow_html=True)
@@ -326,7 +326,7 @@ st.container(border = False, height = 32)
 cssstyles = """
             {
                 border: none;
-                background-image: url('http://localhost:8501/app/static/Images/Purp.png');
+                background-image: url('app/static/Images/Purp.png');
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
@@ -349,4 +349,4 @@ with cols[1]:
                 st.link_button("Enter World", url=App_Link, type = 'primary')
 
             with contentcols[2]:
-                st.markdown(f"<img src='{Base_url}/app/static/Images/BetaGardens.png' style='margin-top: -120px; margin-left: 90px;'>", unsafe_allow_html=True)
+                st.markdown(f"<img src='app/static/Images/BetaGardens.png' style='margin-top: -120px; margin-left: 90px;'>", unsafe_allow_html=True)
