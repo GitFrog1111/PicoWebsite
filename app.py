@@ -1,11 +1,9 @@
 import streamlit as st
-import base64
-from pathlib import Path
-import streamlit_extras as se
 from streamlit_extras.star_rating import star_rating
 from streamlit_extras.stylable_container import stylable_container
 import time
-import random
+
+App_Link = "https://picopedro.streamlit.app/"
 
 # --- PAGE CONFIG ---
 st.set_page_config(
@@ -49,7 +47,7 @@ with st.container():
         star_rating(5, color = "#FFD700")
         st.markdown("<h1 style='text-align: left; font-size: 48px; font-weight: 600;margin-top: -50px;'>The #1 Way to Learn a Language is Through Play</h1>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400;'>What all the other apps dont tell you: your streak, your boosts and all those levels won't make you fluent.</p>", unsafe_allow_html=True)
-        st.button("Enter World", key="hero_enter", type = 'primary')
+        st.link_button("Enter World", url=App_Link, key="hero_enter", type = 'primary')
 
     with cols[3]:
         st.markdown(f"<img src='{Base_url}/app/static/Images/Farm.png' style='margin-top: 0px;'>", unsafe_allow_html=True)
@@ -319,7 +317,7 @@ with st.container():
             st.write("PicoPedro is a browser game, (app coming soon!). The game is a true sandbox, You can set your own missions and adventures, or let the game lead the way. The game is free to play, however it is limited use per day. You can upgrade to a paid subscription to unlock unlimited playtime.")
         with st.expander("How do I get started?"):
             st.write("Click the button, sign in, and start playing!")
-            st.button("Enter World", key="FAQ_enter", type = 'primary')
+            st.link_button("Enter World", url=App_Link, key="FAQ_enter", type = 'primary')
         
 
 # --- BETA NOW LIVE ---
@@ -347,7 +345,7 @@ with cols[1]:
             with contentcols[1]:
                 st.container(border = False, height = 96)
                 st.markdown("<h1 style='text-align: left; font-size: 32px; font-weight: 600;'>Beta Now Live!</h1>", unsafe_allow_html=True)
-                st.button("Enter World", key="beta_enter", type = 'primary')
+                st.link_button("Enter World", url=App_Link, key="beta_enter", type = 'primary')
 
             with contentcols[2]:
                 st.markdown(f"<img src='{Base_url}/app/static/Images/BetaGardens.png' style='margin-top: -120px; margin-left: 90px;'>", unsafe_allow_html=True)
