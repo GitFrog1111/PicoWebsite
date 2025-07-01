@@ -28,6 +28,7 @@ if 'RandomMessage' not in st.session_state:
     st.session_state.RandomMessage = 0
 
 Base_url = "http://localhost:8501"
+Base_url = "https://joinpicopedro.streamlit.app"
 
 def FakeStream(text):
     for char in text:
@@ -50,7 +51,7 @@ with st.container():
         st.link_button("Enter World", url=App_Link, type = 'primary')
 
     with cols[3]:
-        st.markdown(f"<img src='{Base_url}/app/static/Images/Farm.png' style='margin-top: 0px;'>", unsafe_allow_html=True)
+        st.markdown(f"<img src='app/static/Images/Farm.png' style='margin-top: 0px;'>", unsafe_allow_html=True)
         chatcols = st.columns([1, 1.8, 1])
         with chatcols[1]:
             cssstyles = """
@@ -138,7 +139,7 @@ with st.container():
                 imagesizer = st.columns([1, 1])
                 with imagesizer[1]:
                     #set z-index to 1000
-                    st.markdown(f"<img src='{Base_url}/app/static/Images/Boatyard.png' style='margin-top: -250px; margin-left: 50px;'>", unsafe_allow_html=True)
+                    st.markdown(f"<img src='static/Images/Boatyard.png' style='margin-top: -250px; margin-left: 50px;'>", unsafe_allow_html=True)
 
 
 st.container(border = False, height = 32)
