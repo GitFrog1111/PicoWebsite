@@ -318,7 +318,7 @@ with st.container():
             st.write("PicoPedro is a browser game, (app coming soon!). The game is a true sandbox, You can set your own missions and adventures, or let the game lead the way. The game is free to play, however it is limited use per day. You can upgrade to a paid subscription to unlock unlimited playtime.")
         with st.expander("How do I get started?"):
             st.write("Click the button, sign in, and start playing!")
-            st.link_button("Enter World", key="FAQ_enter", type = 'primary')
+            st.link_button("Enter World",url=App_Link, type = 'primary')
         
 
 # --- BETA NOW LIVE ---
