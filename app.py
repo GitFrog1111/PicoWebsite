@@ -51,7 +51,7 @@ with st.container():
         st.link_button("Enter World", url=App_Link, type = 'primary')
 
     with cols[3]:
-        st.markdown(f"<img src='app/static/Images/Farm.png' style='margin-top: 0px;'>", unsafe_allow_html=True)
+        st.markdown(f"<img src='app/static/Images/Farm.png' style='margin-top: 0px; float: right;'>", unsafe_allow_html=True)
         chatcols = st.columns([1, 1.8, 1])
         with chatcols[1]:
             cssstyles = """
@@ -126,8 +126,6 @@ with st.container():
             }
             """,):
         
-
-        
         
             with st.container():
                 content_cols = st.columns([1, 6, 6, 1])
@@ -136,10 +134,10 @@ with st.container():
                     st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>Find your adventure</h1>", unsafe_allow_html=True)
                     st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>Set sail for a pirates paradise, or start a rebellion in a corporate cyberpunk world. Every word you learn is another tool to carve your own story.</p>", unsafe_allow_html=True)
                 
-                imagesizer = st.columns([1, 1])
+                imagesizer = st.columns([1.2, 1])
                 with imagesizer[1]:
                     #set z-index to 1000
-                    st.markdown(f"<img src='app/static/Images/Boatyard.png' style='margin-top: -250px; margin-left: 50px;'>", unsafe_allow_html=True)
+                    st.markdown(f"<img src='app/static/Images/Boatyard.png' style='margin-top: -250px; float: right; margin-right: 10%;'>", unsafe_allow_html=True)
 
 
 st.container(border = False, height = 32)
@@ -322,11 +320,11 @@ with st.container():
         
 
 # --- BETA NOW LIVE ---
-st.container(border = False, height = 32)
+st.container(border = False, height = 64)
 cssstyles = """
             {
                 border: none;
-                background-image: url('app/static/Images/Purp.png');
+                background-image: url('app/static/Images/Purp2.png');
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
@@ -336,6 +334,7 @@ cssstyles = """
                 padding: 30px;
             }
             """
+
 cols = st.columns([1, 10, 1])
 with cols[1]:
     with stylable_container(
@@ -349,4 +348,5 @@ with cols[1]:
                 st.link_button("Enter World", url=App_Link, type = 'primary')
 
             with contentcols[2]:
-                st.markdown(f"<img src='app/static/Images/BetaGardens.png' style='margin-top: -120px; margin-left: 90px;'>", unsafe_allow_html=True)
+
+                st.markdown(f"<img src='app/static/Images/BetaGardens.png' style='margin-top: -120px; float: right;'>", unsafe_allow_html=True)
