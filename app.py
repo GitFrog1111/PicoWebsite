@@ -37,7 +37,7 @@ function() {
                   """)
 
 st.write(Mobile)
-st.sleep(10)
+time.sleep(10)
 
 
 
