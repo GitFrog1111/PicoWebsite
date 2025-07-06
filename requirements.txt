@@ -1,5 +1,2 @@
 streamlit>=1.28.0
 streamlit-extras>=0.3.0 
-streamlit-js-eval>=0.1.7
-streamlit-javascript>=0.1.0
-user-agents>=2.0.0

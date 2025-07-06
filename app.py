@@ -3,8 +3,6 @@ from streamlit_extras.star_rating import star_rating
 from streamlit_extras.stylable_container import stylable_container
 import time
 
-from streamlit_js_eval import streamlit_js_eval
-
 App_Link = "https://picopedro.streamlit.app/"
 
 # --- PAGE CONFIG ---
@@ -25,20 +23,6 @@ body {
 </style>
 """, unsafe_allow_html=True)
 
-
-
-#test
-
-from streamlit_javascript import st_javascript
-from user_agents import parse
-
-ua_string = st_javascript("""window.navigator.userAgent;""")
-user_agent = parse(ua_string)
-st.session_state.is_session_pc = user_agent.is_pc
-st.info(st.session_state.is_session_pc)     
-
-st.write(st.session_state.is_session_pc)
-time.sleep(10)
 
 
 
