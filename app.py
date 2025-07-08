@@ -417,7 +417,7 @@ def RenderMobile():
     st.container(border=False, height=10)
 
     # Title
-    st.markdown("<h1 style='text-align: center; font-size: 48px; font-weight: 600; line-height: 1.1; margin-top: -100px;'>The #1 way to learn a language is</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; font-size: 48px; font-weight: 600; line-height: 1.1; margin-top: -20px;'>The #1 way to learn a language is</h1>", unsafe_allow_html=True)
 
     
     st.markdown("<img src='app/static/Images/GreenPlay.png' style='margin-top: 0px;'>", unsafe_allow_html=True)
