@@ -354,7 +354,11 @@ def FakeStream(text):
 
 #                     st.markdown(f"<img src='app/static/Images/BetaGardens.png' style='margin-top: -120px; float: right;'>", unsafe_allow_html=True)
 
-
+def nav_to(url):
+    nav_script = """
+        <meta http-equiv="refresh" content="0; url='%s'">
+    """ % (url)
+    st.write(nav_script, unsafe_allow_html=True)
 
 def RenderMobile():
     hide_st_style = """
@@ -450,11 +454,12 @@ def RenderMobile():
         button:hover {
             background-image: None;
             background-color: #FFFFFF;
-            box-shadow: 0px 0px 6px rgba(157, 78, 221, 0.2);
+            box-shadow: 0px 0px 2px 20px rgba(157, 78, 221, 0.5);
             text-color: #000000;
         """
     ):
-        st.button("Play Now", type = "tertiary", use_container_width=True)
+        if st.button("Play Now", type = "secondary", use_container_width=True):
+            nav_to(App_Link)
 
     st.container(border=False, height=30)
 
@@ -611,7 +616,7 @@ def RenderMobile():
     with stylable_container(
         key="play_for_free_start_button",
         css_styles="""
-        a {
+        button {
             background-color: #FFFFFF;
             border-radius: 5555px;
             text-align: center;
@@ -622,14 +627,19 @@ def RenderMobile():
             box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
             border: 0px;
             float: inherit;
+            text-color: #000000;
+            font-size: 24px;
         }
         button:hover {
+            background-color: #FFFFFF;
             box-shadow: 0px 0px 6px rgba(157, 78, 221, 0.2);
+            text-color: #000000;
         }
         """
     ):
-        st.link_button("Start Game", url=App_Link, type="secondary")
-    
+        st.container(border=False, height=10)
+        if st.button("Start Game", type = "secondary", use_container_width=True):
+            nav_to(App_Link)
 
     # --- FOOTER ---
     st.container(border=False, height=30)
@@ -656,6 +666,7 @@ def RenderMobile():
         key="footer_links",
         css_styles=cssstyles):
         st.link_button("Home", 'https://www.picopedro.com', type="tertiary")
+        st.container(border=False, height=1)
         st.link_button("Start Game", url=App_Link, type="tertiary")
         st.link_button("PachoNotes", 'https://www.picopedro.com', type="tertiary")
         st.link_button("Leaderboard", 'https://www.picopedro.com', type="tertiary")
@@ -670,6 +681,7 @@ def RenderMobile():
         key="footer_community_links",
         css_styles=cssstyles):
         st.link_button("Discord", 'https://www.picopedro.com', type="tertiary")
+        st.container(border=False, height=1)
         st.link_button("Youtube", 'https://www.picopedro.com', type="tertiary")
         st.link_button("Twitter/X", 'https://www.picopedro.com', type="tertiary")
 
