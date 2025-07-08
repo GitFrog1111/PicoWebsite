@@ -638,58 +638,47 @@ def RenderMobile():
     st.markdown("<img src='app/static/Images/WindmillFooter.png' style='margin-top: 0px; width :500px;'>", unsafe_allow_html=True)
     st.container(border=False, height=10)
 
-    with stylable_container(
-        key="whitebox",
-        css_styles="""
-        div {
-            background-color: #FFFFFF;
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.1);
+
+    st.container(border=False, height=180)
+    st.markdown("<img src='app/static/Images/Logos/Logo_Blackout_Med.png' style='margin-top: 0px; width: 200px;'>", unsafe_allow_html=True)
+    st.container(border=False, height=20)
+
+    st.markdown("<p style='text-align: left; color: #A4A9BA; font-size: 12px; font-weight: 400; padding-left: 20px;'>S i t e</p>", unsafe_allow_html=True)
+    
+    cssstyles = """
+        a {
+            border: none;
+            background-color: transparent;
+            font-size: 16px;
+            font-weight: 400;
+            padding-left: 20px;
+            padding-right: 20px;
+            
         }
-        """):
+        """
+    with stylable_container(
+        key="footer_links",
+        css_styles=cssstyles):
+        st.link_button("Home", 'https://www.picopedro.com', type="tertiary")
+        st.link_button("Start Game", url=App_Link, type="tertiary")
+        st.link_button("PachoNotes", 'https://www.picopedro.com', type="tertiary")
+        st.link_button("Leaderboard", 'https://www.picopedro.com', type="tertiary")
+        st.link_button("Invite to Earn", 'https://www.picopedro.com', type="tertiary")
+        st.link_button("Give Feedback", 'https://www.picopedro.com', type="tertiary")
+    
+    st.container(border=False, height=20)
 
+    st.markdown("<p style='text-align: left; color: #A4A9BA; font-size: 12px; font-weight: 400; padding-left: 20px;'>C o m m u n i t y</p>", unsafe_allow_html=True)
 
-        st.container(border=False, height=180)
-        st.markdown("<img src='app/static/Images/Logos/Logo_Blackout_Med.png' style='margin-top: 0px; width: 200px;'>", unsafe_allow_html=True)
-        st.container(border=False, height=20)
+    with stylable_container(
+        key="footer_community_links",
+        css_styles=cssstyles):
+        st.link_button("Discord", 'https://www.picopedro.com', type="tertiary")
+        st.link_button("Youtube", 'https://www.picopedro.com', type="tertiary")
+        st.link_button("Twitter/X", 'https://www.picopedro.com', type="tertiary")
 
-        st.markdown("<p style='text-align: left; color: #A4A9BA; font-size: 12px; font-weight: 400; padding-left: 20px;'>S i t e</p>", unsafe_allow_html=True)
-        
-        cssstyles = """
-            a {
-                border: none;
-                background-color: transparent;
-                font-size: 16px;
-                font-weight: 400;
-                padding-left: 20px;
-                padding-right: 20px;
-                
-            }
-            """
-        with stylable_container(
-            key="footer_links",
-            css_styles=cssstyles):
-            st.link_button("Home", 'https://www.picopedro.com', type="tertiary")
-            st.link_button("Start Game", url=App_Link, type="tertiary")
-            st.link_button("PachoNotes", 'https://www.picopedro.com', type="tertiary")
-            st.link_button("Leaderboard", 'https://www.picopedro.com', type="tertiary")
-            st.link_button("Invite to Earn", 'https://www.picopedro.com', type="tertiary")
-            st.link_button("Give Feedback", 'https://www.picopedro.com', type="tertiary")
-        
-        st.container(border=False, height=20)
-
-        st.markdown("<p style='text-align: left; color: #A4A9BA; font-size: 12px; font-weight: 400; padding-left: 20px;'>C o m m u n i t y</p>", unsafe_allow_html=True)
-
-        with stylable_container(
-            key="footer_community_links",
-            css_styles=cssstyles):
-            st.link_button("Discord", 'https://www.picopedro.com', type="tertiary")
-            st.link_button("Youtube", 'https://www.picopedro.com', type="tertiary")
-            st.link_button("Twitter/X", 'https://www.picopedro.com', type="tertiary")
-
-        
-        
+    
+    
     
 
 # ua_string = str(st_javascript("""window.navigator.userAgent;"""))
