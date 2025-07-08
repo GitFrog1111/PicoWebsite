@@ -636,6 +636,22 @@ def RenderMobile():
     # --- FOOTER ---
     st.container(border=False, height=30)
     st.markdown("<img src='app/static/Images/WindmillFooter.png' style='margin-top: 0px; width :500px;'>", unsafe_allow_html=True)
+    st.container(border=False, height=10)
+
+    with stylable_container(
+        key="whitebox",
+        css_styles="""
+        div {
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.1);
+        }
+        """):
+        st.container(border=False, height=180)
+        st.markdown("<img src='app/static/Images/Logos/Logo_Blackout_Med.png' style='margin-top: 0px; width: 200px;'>", unsafe_allow_html=True)
+        st.container(border=False, height=20)
+
 
     st.container(border=False, height=180)
     st.markdown("<img src='app/static/Images/Logos/Logo_Blackout_Med.png' style='margin-top: 0px; width: 200px;'>", unsafe_allow_html=True)
