@@ -430,14 +430,14 @@ def RenderMobile():
     with stylable_container(
         key="start_game_button",
         css_styles="""
-        button {
+        a {
             
             background-image: url('app/static/Images/StartGameGradient.png');
             background-size: cover;
             border-radius: 100px;
             border: none;
             text-align: center;
-            font-size: 48px;
+            font-size: 64;
             padding-top: 10px;
             padding-bottom: 10px;
             margin-left: 25%;
@@ -450,16 +450,19 @@ def RenderMobile():
             
             
             
+            
         }
-        button:hover {
+        a:hover {
             background-image: None;
             background-color: #FFFFFF;
-            box-shadow: 0px 0px 2px 20px rgba(157, 78, 221, 0.5);
+            box-shadow: 0px 0px 12px 0px rgba(157, 78, 221, 0.5);
             text-color: #000000;
+            
+
         """
     ):
-        if st.button("Play Now", type = "secondary", use_container_width=True):
-            nav_to(App_Link)
+        st.link_button("Play Now", url=App_Link, type = "secondary")
+            
 
     st.container(border=False, height=30)
 
@@ -491,10 +494,10 @@ def RenderMobile():
                 border-radius: 20px;
                 background-color: #E7E7E7;
                 height: 45px;
-                width: 50%;
+                width: 75%;
                 padding-top: 10px;
                 padding-left: 20px;
-                margin-left: 100px;
+                margin-left: 20px;
                 margin-top: -55px;
                 border: 1px solid rgb(211, 211, 211);
             }
@@ -521,7 +524,7 @@ def RenderMobile():
                 border-radius: 20px;
                 background-color: #E7E7E7;
                 padding: 10px;
-                margin-right: 50px;
+                margin-right: 20px;
                 margin-top: -70px;
                 border: 1px solid rgb(211, 211, 211);
                 border-radius: 5555px;
@@ -616,7 +619,7 @@ def RenderMobile():
     with stylable_container(
         key="play_for_free_start_button",
         css_styles="""
-        button {
+        a {
             background-color: #FFFFFF;
             border-radius: 5555px;
             text-align: center;
@@ -625,21 +628,21 @@ def RenderMobile():
             margin-left: 35%;
             width: 30%;
             box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
-            border: 0px;
+            border: 1px;
             float: inherit;
             text-color: #000000;
             font-size: 24px;
         }
-        button:hover {
+        a:hover {
+            background-image: None;
             background-color: #FFFFFF;
-            box-shadow: 0px 0px 6px rgba(157, 78, 221, 0.2);
+            box-shadow: 0px 0px 12px 0px rgba(157, 78, 221, 0.5);
             text-color: #000000;
         }
         """
     ):
         st.container(border=False, height=10)
-        if st.button("Start Game", type = "secondary", use_container_width=True):
-            nav_to(App_Link)
+        st.link_button("Start Game", url=App_Link, type = "secondary")
 
     # --- FOOTER ---
     st.container(border=False, height=30)
