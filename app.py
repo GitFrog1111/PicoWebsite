@@ -11,7 +11,7 @@ App_Link = "https://picopedro.streamlit.app/"
 # --- PAGE CONFIG ---
 st.set_page_config(
     page_title="Pico Pedro",
-    page_icon="static/Images/PicoLogo.png",
+    page_icon="static/Images/Logos/Badge_Tiny.png",
     layout = 'wide'
     
 )
@@ -372,7 +372,7 @@ def RenderMobile():
     # Header
     #st.logo("static/Images/Logos/Logo_Med.png")
 
-    st.markdown("<img src='app/static/Images/Logos/Logo_Med.png' style='margin-top: 0px; width: 100px;'>", unsafe_allow_html=True) 
+    st.markdown("<img src='app/static/Images/Logos/Logo_Med.png' style='margin-top: -200px; width: 100px;'>", unsafe_allow_html=True) 
 
     with stylable_container(
         key="menu_button",
@@ -382,7 +382,7 @@ def RenderMobile():
             border-radius: 20px;
             background-color: transparent;
             margin-left: 100px;
-            margin-top: -36px;
+            margin-top: -130px;
             float: right;
             
         }
@@ -399,13 +399,9 @@ def RenderMobile():
                 a {
                     border: none;
                     border-radius: 20px;
-                    
-                    
                     text-align: right;
                     float: right;
-                    
-                    
-                    
+                                        
                 }
                 """):
 
@@ -463,7 +459,7 @@ def RenderMobile():
     st.container(border=False, height=30)
 
     # Farm Image
-    st.image("static/Images/Farm.png")
+    st.markdown("<img src='app/static/Images/Farm.png' style='margin-top: 0px; display: flex; justify-content: center;'>", unsafe_allow_html=True)
 
     # Input Field
 
@@ -490,10 +486,10 @@ def RenderMobile():
                 border-radius: 20px;
                 background-color: #E7E7E7;
                 height: 45px;
-                width: 45%;
+                width: 50%;
                 padding-top: 10px;
                 padding-left: 20px;
-                margin-left: 120px;
+                margin-left: 100px;
                 margin-top: -55px;
                 border: 1px solid rgb(211, 211, 211);
             }
@@ -520,7 +516,7 @@ def RenderMobile():
                 border-radius: 20px;
                 background-color: #E7E7E7;
                 padding: 10px;
-                margin-right: 80px;
+                margin-right: 50px;
                 margin-top: -70px;
                 border: 1px solid rgb(211, 211, 211);
                 border-radius: 5555px;
