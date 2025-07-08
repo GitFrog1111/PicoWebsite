@@ -414,7 +414,7 @@ def RenderMobile():
         
         
     
-    st.container(border=False, height=50)
+    st.container(border=False, height=10)
 
     # Title
     st.markdown("<h1 style='text-align: center; font-size: 48px; font-weight: 600; line-height: 1.1'>The #1 way to learn a language is</h1>", unsafe_allow_html=True)
@@ -578,12 +578,10 @@ def RenderMobile():
 
     for feature in features:
         with st.container():
-            cols = st.columns([1, 4])
-            with cols[0]:
-                st.image(feature["icon"], width=64)
-            with cols[1]:
-                st.markdown(f"<h4>{feature['title']}</h4>", unsafe_allow_html=True)
-                st.markdown(f"<p>{feature['text']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<img src='app/{feature['icon']}' style='margin-top: 0px; width: 64px;'>", unsafe_allow_html=True)
+        
+            st.markdown(f"<h4 style='margin-top: -10px;'>{feature['title']}</h4>", unsafe_allow_html=True)
+            st.markdown(f"<p>{feature['text']}</p>", unsafe_allow_html=True)
         st.container(border=False, height=20)
 
 
