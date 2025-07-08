@@ -563,6 +563,7 @@ def RenderMobile():
     #     st.markdown("<h1 style='text-align: center; font-size: 38px; font-weight: 600; margin-top: -120px;'>We Make Speakers</h1>", unsafe_allow_html=True)
     #     st.markdown("<p style='text-align: center; font-size: 16px; font-weight: 400;'>Focus on understanding and being understood.</p>", unsafe_allow_html=True)
     
+    st.container(border=False, height=100)
     with st.container():
         
         st.markdown("<div style='display: flex; justify-content: center;'><img src='app/static/Images/SpeakersMadeHere.png' style='margin-top: 0px; width: 100%; max-width: 900px;'></div>", unsafe_allow_html=True)
