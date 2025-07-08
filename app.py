@@ -636,8 +636,6 @@ def RenderMobile():
     # --- FOOTER ---
     st.container(border=False, height=30)
     st.markdown("<img src='app/static/Images/WindmillFooter.png' style='margin-top: 0px; width :500px;'>", unsafe_allow_html=True)
-    st.container(border=False, height=10)
-
 
     st.container(border=False, height=180)
     st.markdown("<img src='app/static/Images/Logos/Logo_Blackout_Med.png' style='margin-top: 0px; width: 200px;'>", unsafe_allow_html=True)
