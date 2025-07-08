@@ -463,6 +463,7 @@ def RenderMobile():
 
     # Farm Image
     st.markdown("<img src='app/static/Images/Farm.png' style='margin-top: 0px; display: flex; justify-content: center;'>", unsafe_allow_html=True)
+    st.container(border=False, height=5)
 
     # Input Field
 
