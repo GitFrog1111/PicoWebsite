@@ -10,7 +10,7 @@ App_Link = "https://picopedro.streamlit.app/"
 
 # --- PAGE CONFIG ---
 st.set_page_config(
-    page_title="Pico Pedro",
+    page_title="Pico Pacho",
     page_icon="static/Images/Logos/Badge_Tiny.png",
     layout = 'wide'
     
@@ -354,11 +354,6 @@ def FakeStream(text):
 
 #                     st.markdown(f"<img src='app/static/Images/BetaGardens.png' style='margin-top: -120px; float: right;'>", unsafe_allow_html=True)
 
-def nav_to(url):
-    nav_script = """
-        <meta http-equiv="refresh" content="0; url='%s'">
-    """ % (url)
-    st.write(nav_script, unsafe_allow_html=True)
 
 def RenderMobile():
     hide_st_style = """
