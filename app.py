@@ -606,7 +606,6 @@ def RenderMobile():
     st.container(border=False, height=64)
     
     st.markdown("<img src='app/static/Images/PlayForFree.png' style='margin-top: 0px;'>", unsafe_allow_html=True)
-    st.markdown("<h1 style='text-align: center; font-size: 38px; font-weight: 600; margin-top: -100px;'>Play For Free</h1>", unsafe_allow_html=True)
     
     with stylable_container(
         key="play_for_free_start_button",
