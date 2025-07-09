@@ -32,6 +32,16 @@ if 'RandomMessage' not in st.session_state:
 Base_url = "http://localhost:8501"
 Base_url = "https://joinpicopedro.streamlit.app"
 
+
+hide_st_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        </style>
+        """
+st.markdown(hide_st_style, unsafe_allow_html=True)
+
 def FakeStream(text):
     for char in text:
         time.sleep(0.02)
@@ -41,14 +51,6 @@ def FakeStream(text):
 
 def RenderDesktop():
 
-    hide_st_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            header {visibility: hidden;}
-            </style>
-            """
-    st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
     links = {
