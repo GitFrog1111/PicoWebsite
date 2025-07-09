@@ -491,7 +491,6 @@ def RenderMobile():
         
         
     
-    st.container(border=False, height=10)
 
     # Stars
     st.markdown("<img src='app/static/Images/Icons/Stars.png' style='margin-top: 0px; display: block; margin-left: auto; margin-right: auto; width: 30%;'>", unsafe_allow_html=True)
