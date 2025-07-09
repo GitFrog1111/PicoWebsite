@@ -798,12 +798,12 @@ def RenderMobile():
 ua_string = None
 while ua_string is None or ua_string == "None":
     ua_string = str(st_javascript("""window.navigator.userAgent;"""))
-    time.sleep(2)
+    time.sleep(0.1)
 user_agent = parse(ua_string)
 st.session_state.is_session_pc = bool(user_agent.is_pc)
 print('here: ')
 print(st.session_state.is_session_pc)
-if st.session_state.is_session_pc:
+if st.session_state.is_session_pc == True:
     RenderDesktop()
 else:
     RenderMobile()
