@@ -54,7 +54,7 @@ st.html("<style>[data-testid='stHeaderActionElements'] {display: none;}</style>"
 
 if 'Features' not in st.session_state:
     st.session_state.Features = {
-        'From Start to Fluent': 'PicoPacho dynamically adjusts to all skill levels.',
+        'From Start to Fluent': 'PICOPACHO dynamically adjusts to all skill levels.',
         'Missions': 'Set your own missions or ask around! Characters throw you into memorable encounters right from the start.',
         'Endless Encounters': 'Whether you\'re starting a cult or a new job, everything is generated with AI just for you.',
         'Leaderboard': 'Compete on a global leaderboard for in-game rewards!',
