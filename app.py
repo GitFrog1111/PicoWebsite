@@ -40,40 +40,126 @@ def FakeStream(text):
 
 
 def RenderDesktop():
-    
+
+    hide_streamlit_style = """
+        <style>
+            /* Make the Streamlit header glassy transparent */
+            header {
+                background: rgba(255, 255, 255, 0.25) !important;
+                backdrop-filter: blur(8px) !important;
+                -webkit-backdrop-filter: blur(10px) !important;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+                visibility: visible !important;
+                position: relative !important;
+                z-index: 1002 !important;
+            }
+            /* Optionally, hide the footer */
+            .streamlit-footer {display: none;}
+
+            /* Custom header links styling */
+            .custom-header-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                z-index: 10003;
+                display: flex;
+                justify-content: center;
+                gap: 24px;
+                align-items: center;
+                
+                padding-top: 18px;
+            }
+            .custom-header-links a {
+                font-family: 'Itim', sans-serif;
+                font-size: 14px;
+                color: #333;
+                text-decoration: none;
+                font-weight: 500;
+                padding: 6px 18px;
+                border-radius: 20px;
+                transition: color 0.2s;
+                background: none !important;
+                box-shadow: none !important;
+                border: none !important;
+            }
+            .custom-header-links a:hover {
+                background: none !important;
+                color: #9D4EDD;
+            }
+        </style>
+        <div class="custom-header-links" style="z-index:10004; position:fixed; left:0; width:100vw; display:flex; justify-content:center;">
+            <a href="https://www.picopedro.com" target="_blank" style="z-index:10005;">Home</a>
+            <a href="https://picopedro.streamlit.app/" target="_blank" style="z-index:10004;">Start Game</a>
+            <a href="https://www.picopedro.com" target="_blank" style="z-index:10004;">PachoNotes</a>
+            <a href="https://www.picopedro.com" target="_blank" style="z-index:10004;">Leaderboard</a>
+        </div>
+        """
+
+    st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
     # --- HERO SECTION ---
     with st.container():
         cols = st.columns([1, 6, 1, 5, 1])
         with cols[1]:
             st.container(border = False, height = 85)
-            st.logo("static/Images/Logos/Logo_Med.png")
+            st.logo("static/Images/Logos/Logo_Med.png", size = 'large')
             star_rating(5, color = "#D9D9D9")
             st.markdown("<h1 style='text-align: left; font-size: 48px; font-weight: 600;margin-top: -50px;'>The #1 Way to Learn a Language is Through Play</h1>", unsafe_allow_html=True)
+            st.markdown(
+                """
+                <p style="
+                    text-align: left;
+                    font-size: 16px;
+                    font-weight: 400;
+                    margin-top: -10px;
+                    max-width: 70%;
+                ">
+                    Automatic language aquisition is the cheatcode to fluency.
+                </p>
+                """,
+                unsafe_allow_html=True
+            )
+
             
             with stylable_container(
                 key="start_game_button",
                 css_styles="""
-                button {
+                a {
                     border: none;
-                    border-radius: 20px;
-                    background-color: #D9D9D9;
+                    border-radius: 5555px;
+                    color: #FFFFFF;
+                    
+                    background-image: url('app/static/Images/StartGameGradient.png');
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
                     height: 45px;
-                    padding: 10px;
-                    margin-left: 0px;
+                    padding: 20px;
+                    margin-left: 0s%;
                     margin-top: -15px;
+                    border: 1px solid rgb(255, 255, 255, 0.1);
+                    border-radius: 5555px;
+                }
+                a:hover {
+                    background-color: #FFFFFF;
+                    background-image: none;
                     border: 1px solid rgb(211, 211, 211);
                     border-radius: 5555px;
                 }
-                button:hover {
-                    background-color: none;
+                a:focus {
+                    background-color: #FFFFFF;
+                    background-image: none;
                     border: 1px solid rgb(211, 211, 211);
                     border-radius: 5555px;
                 }
                 """):
-                st.link_button("Start Game", url=App_Link, type = 'primary')
+                st.container(border = False, height = 10)
+                st.link_button("Start Game", url=App_Link, type = 'secondary')
 
         with cols[3]:
-            st.markdown(f"<img src='app/static/Images/Farm.png' style='margin-top: 0px; float: right;'>", unsafe_allow_html=True)
+            st.markdown(f"<img src='app/static/Images/Farm.png' style='margin-top: -10px; float: right;'>", unsafe_allow_html=True)
             chatcols = st.columns([1, 1.8, 1])
             with chatcols[1]:
                 cssstyles = """
@@ -83,6 +169,7 @@ def RenderDesktop():
                         background-color: #E7E7E7;
                         height: 45px;
                         padding: 10px;
+                        padding-left: 20px;
                         margin-left: 0px;
                         margin-top: -15px;
                         border: 1px solid rgb(211, 211, 211);
@@ -433,10 +520,13 @@ def RenderMobile():
     
     st.container(border=False, height=10)
 
-    # Title
+    # Stars
+    st.markdown("<img src='app/static/Images/Icons/Stars.png' style='margin-top: 0px; display: flex; justify-content: center;'>", unsafe_allow_html=True)
+
+    # Title Text
     st.markdown("<h1 style='text-align: center; font-size: 48px; font-weight: 600; line-height: 1.1; margin-top: -20px;'>The #1 way to learn a language is</h1>", unsafe_allow_html=True)
 
-    
+    # Play Text
     st.markdown("<img src='app/static/Images/GreenPlay.png' style='margin-top: 0px;'>", unsafe_allow_html=True)
     
     # Start Game Button
@@ -704,13 +794,16 @@ def RenderMobile():
 
     
     
+
+if 'is_session_pc' not in st.session_state:
     
 
-ua_string = str(st_javascript("""window.navigator.userAgent;"""))
-user_agent = (parse(ua_string))
-st.session_state.is_session_pc = bool(user_agent.is_pc)
-time.sleep(1)
-if st.session_state.is_session_pc:
+    ua_string = str(st_javascript("""window.navigator.userAgent;"""))
+    user_agent = (parse(ua_string))
+    st.session_state.is_session_pc = bool(user_agent.is_pc)
+    time.sleep(2)
+
+if not st.session_state.is_session_pc:
     RenderDesktop()
 else:
     RenderMobile()
