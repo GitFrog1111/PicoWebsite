@@ -137,7 +137,6 @@ def RenderDesktop():
                     border: none;
                     border-radius: 5555px;
                     color: #FFFFFF;
-                    
                     background-image: url('app/static/Images/StartGameGradient.png');
                     background-size: cover;
                     background-position: center;
@@ -233,10 +232,10 @@ def RenderDesktop():
             key="container_with_border",
             css_styles="""
                 {
-                    border: none;
+                    border: 1px solid rgb(238, 239, 241);
                     border-radius: 20px;
                     background-color: #FFFFFF;
-                    
+                    box-shadow: 0px 0px 100px -60px rgba(0, 0, 0, 0.2);
                     z-index: 1000;
                 }
                 """,):
@@ -265,6 +264,7 @@ def RenderDesktop():
                     height: 700px;
                     padding: 80px;
                     margin-top: -50px;
+                    box-shadow: 0px 0px 100px -60px rgba(0, 0, 0, 0.2);
                 }
                 """
     cssstylesChar = """
@@ -278,6 +278,7 @@ def RenderDesktop():
                     height: 700px;
                     padding: 80px;
                     margin-top: -50px;
+                    box-shadow: 0px 0px 100px -60px rgba(0, 0, 0, 0.2);
                 }
                 """
 
@@ -331,6 +332,7 @@ def RenderDesktop():
                     background-color: #FFFFFF;
                     height: 350px;
                     padding: 30px;
+                    box-shadow: 0px 0px 100px -60px rgba(0, 0, 0, 0.2);
                 }
                 a:hover{
                     background-color: #000000;
