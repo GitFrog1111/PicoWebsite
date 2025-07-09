@@ -41,70 +41,41 @@ def FakeStream(text):
 
 def RenderDesktop():
 
-    hide_streamlit_style = """
-        <style>
-            /* Make the Streamlit header glassy transparent */
-            header {
-                background: rgba(255, 255, 255, 0.25) !important;
-                backdrop-filter: blur(8px) !important;
-                -webkit-backdrop-filter: blur(10px) !important;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-                visibility: visible !important;
-                position: relative !important;
-                z-index: 1002 !important;
-            }
-            /* Optionally, hide the footer */
-            .streamlit-footer {display: none;}
+    hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+    st.markdown(hide_st_style, unsafe_allow_html=True)
 
-            /* Custom header links styling */
-            .custom-header-links {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100vw;
-                z-index: 10003;
-                display: flex;
-                justify-content: center;
-                gap: 24px;
-                align-items: center;
-                
-                padding-top: 18px;
-            }
-            .custom-header-links a {
-                font-family: 'Itim', sans-serif;
-                font-size: 14px;
-                color: #333;
-                text-decoration: none;
-                font-weight: 500;
-                padding: 6px 18px;
-                border-radius: 20px;
-                transition: color 0.2s;
-                background: none !important;
-                box-shadow: none !important;
-                border: none !important;
-            }
-            .custom-header-links a:hover {
-                background: none !important;
-                color: #9D4EDD;
-            }
-        </style>
-        <div class="custom-header-links" style="z-index:10004; position:fixed; left:0; width:100vw; display:flex; justify-content:center;">
-            <a href="https://www.picopedro.com" target="_blank" style="z-index:10005;">Home</a>
-            <a href="https://picopedro.streamlit.app/" target="_blank" style="z-index:10004;">Start Game</a>
-            <a href="https://www.picopedro.com" target="_blank" style="z-index:10004;">PachoNotes</a>
-            <a href="https://www.picopedro.com" target="_blank" style="z-index:10004;">Leaderboard</a>
-        </div>
-        """
 
-    st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+    links = {
+        'blank': 'blank',
+        'blank2': 'blank2',
+        'Home': 'https://www.picopedro.com',
+        'Start Game': App_Link,
+        'PachoNotes': 'https://www.picopedro.com',
+        'Leaderboard': 'https://www.picopedro.com'
+    }
+
+
+    Headercols = st.columns([1, 2, 1, 1, 1, 1, 3])
+    with Headercols[0]:
+        st.markdown("<img src='app/static/Images/Logos/Logo_Med.png' style='margin-top: 0px;'>", unsafe_allow_html=True)
+
+    for i in range(2, 6):
+        with Headercols[i]:
+            st.link_button(list(links.keys())[i], links[list(links.keys())[i]], type = 'tertiary', use_container_width=True)
+
 
     # --- HERO SECTION ---
     with st.container():
         cols = st.columns([1, 6, 1, 5, 1])
         with cols[1]:
             st.container(border = False, height = 85)
-            st.logo("static/Images/Logos/Logo_Med.png", size = 'large')
+            
             star_rating(5, color = "#D9D9D9")
             st.markdown("<h1 style='text-align: left; font-size: 48px; font-weight: 600;margin-top: -50px;'>The #1 Way to Learn a Language is Through Play</h1>", unsafe_allow_html=True)
             st.markdown(
@@ -798,7 +769,7 @@ def RenderMobile():
 ua_string = None
 while ua_string is None or ua_string == "None":
     ua_string = str(st_javascript("""window.navigator.userAgent;"""))
-    time.sleep(1)
+    time.sleep(0.5)
 user_agent = parse(ua_string)
 st.session_state.is_session_pc = bool(user_agent.is_pc)
 print('here: ')
