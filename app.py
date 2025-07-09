@@ -6,15 +6,21 @@ import time
 from streamlit_javascript import st_javascript
 from user_agents import parse
 
+
+
 App_Link = "https://picopacho.streamlit.app/"
 
 # --- PAGE CONFIG ---
 st.set_page_config(
     page_title="Pico Pacho",
     page_icon="static/Images/Logos/Badge_Tiny.png",
-    layout = 'wide'
+    layout = 'wide',
+    initial_sidebar_state="collapsed"
     
 )
+
+
+
 
 # force itim font
 st.markdown("""
@@ -42,6 +48,10 @@ hide_st_style = """
         """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
+#hide anchors
+st.html("<style>[data-testid='stHeaderActionElements'] {display: none;}</style>")
+
+
 if 'Features' not in st.session_state:
     st.session_state.Features = {
         'From Start to Fluent': 'PicoPacho dynamically adjusts to all skill levels.',
@@ -59,51 +69,52 @@ def FakeStream(text):
         
 def displayFAQs():
 
-    with st.expander("What is PicoPacho?"):
-        st.text("""PicoPacho is a language learning game, in an infinite AI-generated world.  Learning a language is extremely hard, and can take months of effort just to get up and running. Staring at a textbook is not memorable experience at all, but sailing across the Atlantic would be!\n\nBabies (and adults) remember experiences, not conjugations, so we've set up PicoPacho to put you in memorable experiences right from the start!""")
+    with st.expander("What is PICOPACHO?"):
+        st.text("""PICOPACHO is a language learning game, in an infinite AI-generated world.  Learning a language is extremely hard, and can take months of effort just to get up and running. Staring at a textbook is not memorable experience at all, but sailing across the Atlantic would be!\n\nBabies (and adults) remember experiences, not conjugations, so we've set up PICOPACHO to put you in memorable experiences right from the start!""")
     with st.expander("How does it work?"):
-        st.text("PicoPacho is a browser game, talk to characters in your target language, visit new locations, collect items, and set your own missions. The game is a true sandbox, You can direct the game to specific situations you want to practice, or let the game lead the way.\n\nPicoPacho is free to play for ~25 moves per day. If you are finding it works for you, you can upgrade to  a paid subscription to unlock unlimited playtime.")
+        st.text("PICOPACHO is a browser game, talk to characters in your target language, visit new locations, collect items, and set your own missions. The game is a true sandbox, You can direct the game to specific situations you want to practice, or let the game lead the way.\n\nPICOPACHO is free to play for ~25 moves per day. If you are finding it works for you, you can upgrade to a paid subscription to unlock unlimited playtime.")
     
     with st.expander("What languages are supported?"):
-        st.write("Currently, PicoPacho supports English, French and German. We are working on adding more languages soon!")
+        st.write("Currently, PICOPACHO supports English, French and German. We are working on adding more languages soon!")
 
     with st.expander("Where can I play?"):
-        st.write("Currently, PicoPacho is only available on desktop. Try for free by clicking the button below to start playing!")
-        #st.markdown("<p style='text-align: center; font-size: 16px; font-weight: 400;'>Click the button below and start playing!</p>", unsafe_allow_html=True)
-        st.link_button("Start Game", url=App_Link, type='secondary')
-
-
+        st.write("Currently, PICOPACHO is only available on desktop. Click the Start Game button below to start playing!")
 
 def RenderDesktop():
-
-
-
     links = {
         'blank': 'blank',
         'blank2': 'blank2',
-        'Home': 'www.joinpicopacho.streamlit.app',
+        'Home': '/',
         'Start Game': App_Link,
-        'PachoNotes': 'www.joinpicopacho.streamlit.app',
-        'Leaderboard': 'www.joinpicopacho.streamlit.app'
+        'PachoNotes': 'pages/pachonotes.py',
+        'Leaderboard': 'pages/leaderboard.py'
     }
 
     with stylable_container(
         key="header_container",
         css_styles="""
         {
-            
-            
             margin-top: -150px;
         }
         """
     ):
+        #             logo p home start game patchnotes leaderboard
         Headercols = st.columns([1, 2, 1, 1, 1, 1, 3])
         with Headercols[0]:
             st.markdown("<img src='app/static/Images/Logos/Logo_Med.png' style='margin-top: 0px;'>", unsafe_allow_html=True)
 
-        for i in range(2, 6):
-            with Headercols[i]:
-                st.link_button(list(links.keys())[i], links[list(links.keys())[i]], type = 'tertiary', use_container_width=True)
+        
+        with Headercols[2]:
+            st.link_button(list(links.keys())[2], links[list(links.keys())[2]], type = 'tertiary', use_container_width=True)
+        with Headercols[3]:
+            st.link_button(list(links.keys())[3], links[list(links.keys())[3]], type = 'tertiary', use_container_width=True)
+
+        with Headercols[4]:
+            if st.button(list(links.keys())[4], type = 'tertiary', use_container_width=True):
+                st.switch_page('pages/pachonotes.py')
+        with Headercols[5]:
+            if st.button(list(links.keys())[5], type = 'tertiary', use_container_width=True):
+                st.switch_page('pages/leaderboard.py')
 
 
     # --- HERO SECTION ---
@@ -113,7 +124,9 @@ def RenderDesktop():
             st.container(border = False, height = 85)
             
             star_rating(5, color = "#D9D9D9")
+            st.container(border = False, height = 1)
             st.markdown("<h1 style='text-align: left; font-size: 48px; font-weight: 600;margin-top: -50px;'>The #1 Way to Learn a Language is Through Play</h1>", unsafe_allow_html=True)
+            
             st.markdown(
                 """
                 <p style="
@@ -165,7 +178,7 @@ def RenderDesktop():
                 st.link_button("Start Game", url=App_Link, type = 'secondary')
 
         with cols[3]:
-            st.markdown(f"<img src='app/static/Images/Farm.png' style='margin-top: -10px; float: right;'>", unsafe_allow_html=True)
+            st.markdown(f"<img src='app/static/Images/Farm.png' style='margin-top: 50px; float: right;'>", unsafe_allow_html=True)
             chatcols = st.columns([1, 1.8, 1])
             with chatcols[1]:
                 cssstyles = """
@@ -250,7 +263,7 @@ def RenderDesktop():
                         st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>Full realism, or play through your favorite movie? Every word you learn becomes another tool to carve your story.</p>", unsafe_allow_html=True)
                     with content_cols[2]:
                         #set z-index to 1000
-                        st.markdown(f"<img src='app/static/Images/AdventureDesktop.png' style='margin-top: 0px; float: right; margin-right: 0%;width: 100%; height:100%;'>", unsafe_allow_html=True)
+                        st.markdown(f"<img src='app/static/Images/AdventureDesktop.png' style='margin-top: 0px; float: right; margin-right: -16%;width: 100%; height:100%;'>", unsafe_allow_html=True)
 
 
     st.container(border = False, height = 32)
@@ -417,7 +430,7 @@ def RenderDesktop():
                 padding-bottom: 10px;
                 height: 70px;
                 box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
-                border: 1px solid rgb(211, 211, 211);
+                border: none;
                 float: inherit;
             }
             a:hover{
@@ -431,7 +444,7 @@ def RenderDesktop():
         ):
             butcols = st.columns([5, 5, 5])
             with butcols[1]:
-                st.link_button("Start Game", url=App_Link, type = "secondary", use_container_width=True)
+                st.link_button("Start Game", url=App_Link, type = "tertiary", use_container_width=True)
 
 
 
@@ -449,6 +462,10 @@ def RenderDesktop():
     margin-top: 0px;
     box-shadow: 0px 500px 0px 500px rgba(255, 255, 255, 1);
     }
+    a:hover{
+        box-shadow: none;
+        border: none;
+    }
     """
     with stylable_container(
         key="footer_container",
@@ -463,25 +480,31 @@ def RenderDesktop():
         
         cssstyles_footerlinks = """
             a {
-                border: none;
-                background-color: transparent;
-                font-size: 16px;
-                font-weight: 400;
                 padding-left: 20px;
-                padding-right: 20px;
-                
             }
             """
+        cssstyles_footerlinks2 = """
+                button {
+                padding-left: 20px;
+            }
+            """
+        
         with stylable_container(
             key="footer_links",
             css_styles=cssstyles_footerlinks):
-            st.link_button("Home", 'www.joinpicopacho.streamlit.app', type="tertiary")
+            st.link_button("Home", '/', type="tertiary")
             st.container(border=False, height=1)
             st.link_button("Start Game", url=App_Link, type="tertiary")
-            st.link_button("PachoNotes", 'www.joinpicopacho.streamlit.app', type="tertiary")
-            st.link_button("Leaderboard", 'www.joinpicopacho.streamlit.app', type="tertiary")
-            st.link_button("Invite to Earn", 'www.joinpicopacho.streamlit.app', type="tertiary")
-            st.link_button("Give Feedback", 'www.joinpicopacho.streamlit.app', type="tertiary")
+        with stylable_container(
+            key="footer_links2",
+            css_styles=cssstyles_footerlinks2):
+            if st.button("PachoNotes", type="tertiary"):
+                st.switch_page('pages/pachonotes.py')
+            st.container(border=False, height=1)
+            if st.button("Leaderboard", type="tertiary"):
+                st.switch_page('pages/leaderboard.py')
+        #st.link_button("Invite to Earn", 'www.joinpicopacho.streamlit.app', type="tertiary")
+        #st.link_button("Give Feedback", 'www.joinpicopacho.streamlit.app', type="tertiary")
         
         st.container(border=False, height=20)
 
@@ -490,10 +513,10 @@ def RenderDesktop():
         with stylable_container(
             key="footer_community_links",
             css_styles=cssstyles_footerlinks):
-            st.link_button("Discord", 'www.joinpicopacho.streamlit.app', type="tertiary")
+            st.link_button("Discord", 'https://discord.gg', type="tertiary")
             st.container(border=False, height=1)
-            st.link_button("Youtube", 'www.joinpicopacho.streamlit.app', type="tertiary")
-            st.link_button("Twitter/X", 'www.joinpicopacho.streamlit.app', type="tertiary")
+            st.link_button("Youtube", 'https://www.youtube.com', type="tertiary")
+            st.link_button("Twitter/X", 'https://x.com', type="tertiary")
 
     
 
@@ -549,11 +572,13 @@ def RenderMobile():
                 }
                 """):
 
-                st.link_button("Home", 'www.joinpicopacho.streamlit.app', type="tertiary")
+                st.link_button("Home", '/', type="tertiary")
                 st.container(border=False, height=1)
                 st.link_button("Start Game", url=App_Link, type="tertiary")
-                st.link_button("PachoNotes", 'www.joinpicopacho.streamlit.app', type="tertiary")
-                st.link_button("Leaderboard", 'www.joinpicopacho.streamlit.app', type="tertiary")
+                if st.button("PachoNotes", type="tertiary"):
+                    st.switch_page('pages/pachonotes.py')
+                if st.button("Leaderboard", type="tertiary"):
+                    st.switch_page('pages/leaderboard.py')
             
         
         
@@ -781,6 +806,12 @@ def RenderMobile():
     st.container(border=False, height=30)
     st.markdown("<img src='app/static/Images/WindmillFooter.png' style='margin-top: 0px; width :500px; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
 
+    
+    
+
+
+
+    
     st.container(border=False, height=180)
     st.markdown("<img src='app/static/Images/Logos/Logo_Blackout_Med.png' style='margin-top: 0px; width: 200px;'>", unsafe_allow_html=True)
     st.container(border=False, height=20)
@@ -801,13 +832,15 @@ def RenderMobile():
     with stylable_container(
         key="footer_links",
         css_styles=cssstyles):
-        st.link_button("Home", 'www.joinpicopacho.streamlit.app', type="tertiary")
+        st.link_button("Home", '/', type="tertiary")
         st.container(border=False, height=1)
         st.link_button("Start Game", url=App_Link, type="tertiary")
-        st.link_button("PachoNotes", 'www.joinpicopacho.streamlit.app', type="tertiary")
-        st.link_button("Leaderboard", 'www.joinpicopacho.streamlit.app', type="tertiary")
-        st.link_button("Invite to Earn", 'www.joinpicopacho.streamlit.app', type="tertiary")
-        st.link_button("Give Feedback", 'www.joinpicopacho.streamlit.app', type="tertiary")
+        if st.button("PachoNotes", type="tertiary"):
+            st.switch_page('pages/pachonotes.py')
+        if st.button("Leaderboard", type="tertiary"):
+            st.switch_page('pages/leaderboard.py')
+        #st.link_button("Invite to Earn", 'www.joinpicopacho.streamlit.app', type="tertiary")
+        #st.link_button("Give Feedback", 'www.joinpicopacho.streamlit.app', type="tertiary")
     
     st.container(border=False, height=20)
 
@@ -816,10 +849,10 @@ def RenderMobile():
     with stylable_container(
         key="footer_community_links",
         css_styles=cssstyles):
-        st.link_button("Discord", 'www.joinpicopacho.streamlit.app', type="tertiary")
+        st.link_button("Discord", 'https://discord.gg', type="tertiary")
         st.container(border=False, height=1)
-        st.link_button("Youtube", 'www.joinpicopacho.streamlit.app', type="tertiary")
-        st.link_button("Twitter/X", 'www.joinpicopacho.streamlit.app', type="tertiary")
+        st.link_button("Youtube", 'https://www.youtube.com', type="tertiary")
+        st.link_button("Twitter/X", 'https://x.com', type="tertiary")
 
     
 
