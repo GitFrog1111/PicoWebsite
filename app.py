@@ -47,6 +47,21 @@ def FakeStream(text):
         time.sleep(0.02)
         yield char
         
+def displayFAQs():
+    
+    with st.expander("What is Pico Pedro?"):
+        st.text("""PicoPacho is a language learning game, in an infinite AI-generated world.  Learning a language is extremely hard, and can take months of effort just to get up and running. Staring at a textbook is not memorable experience at all, but sailing across the Atlantic would be!\n\nBabies (and adults) remember experiences, not conjugations, so we've set up PicoPacho to put you in memorable experiences right from the start!""")
+    with st.expander("How does it work?"):
+        st.text("PicoPacho is a browser game, (app coming soon!). Talk to characters in your target language, visit new locations, collect items, and set your own missions. The game is a true sandbox, You can direct the game to specific situations you want to practice, or let the game lead the way.\n\nPicoPacho is free to play for ~25 moves per day. If you are finding it works for you, you can upgrade to a paid subscription to unlock unlimited playtime.")
+    
+    with st.expander("What languages are supported?"):
+        st.write("Currently, PicoPacho supports English, French and German. We are working on adding more languages soon!")
+
+    with st.expander("Where can I play?"):
+        st.write("Currently, PicoPacho is only available on desktop. Try for free by clicking the button below to start playing!")
+        #st.markdown("<p style='text-align: center; font-size: 16px; font-weight: 400;'>Click the button below and start playing!</p>", unsafe_allow_html=True)
+        st.link_button("Start Game", url=App_Link, type='secondary')
+
 
 
 def RenderDesktop():
@@ -674,18 +689,8 @@ def RenderMobile():
     st.container(border=False, height=64)
     with st.container():
         st.markdown("<h1 style='text-align: center; font-size: 38px; font-weight: 600;'>FAQ</h1>", unsafe_allow_html=True)
-        with st.expander("What is Pico Pedro?"):
-            st.text("""PicoPacho is a language learning game, in an infinite AI-generated world.  Learning a language is extremely hard, and can take months of effort just to get up and running. Staring at a textbook is not memorable experience at all, but sailing across the Atlantic would be!\n\nBabies (and adults) remember experiences, not conjugations, so we've set up PicoPacho to put you in memorable experiences right from the start!""")
-        with st.expander("How does it work?"):
-            st.text("PicoPacho is a browser game, (app coming soon!). Talk to characters in your target language, visit new locations, collect items, and set your own missions. The game is a true sandbox, You can direct the game to specific situations you want to practice, or let the game lead the way.\n\nPicoPacho is free to play for ~25 moves per day. If you are finding it works for you, you can upgrade to a paid subscription to unlock unlimited playtime.")
-        
-        with st.expander("What languages are supported?"):
-            st.write("Currently, PicoPacho supports English, French and German. We are working on adding more languages soon!")
+        displayFAQs()
 
-        with st.expander("Where can I play?"):
-            st.write("Currently, PicoPacho is only available on desktop. Try for free by clicking the button below to start playing!")
-            #st.markdown("<p style='text-align: center; font-size: 16px; font-weight: 400;'>Click the button below and start playing!</p>", unsafe_allow_html=True)
-            st.link_button("Start Game", url=App_Link, type='secondary')
             
     # --- PLAY FOR FREE ---
     st.container(border=False, height=64)
