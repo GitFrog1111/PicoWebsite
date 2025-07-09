@@ -6,7 +6,7 @@ import time
 from streamlit_javascript import st_javascript
 from user_agents import parse
 
-App_Link = "https://picopedro.streamlit.app/"
+App_Link = "https://picopacho.streamlit.app/"
 
 # --- PAGE CONFIG ---
 st.set_page_config(
@@ -30,7 +30,7 @@ if 'RandomMessage' not in st.session_state:
     st.session_state.RandomMessage = 0
 
 Base_url = "http://localhost:8501"
-Base_url = "https://joinpicopedro.streamlit.app"
+Base_url = "https://joinpicopacho.streamlit.app"
 
 
 hide_st_style = """
@@ -42,17 +42,27 @@ hide_st_style = """
         """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
+if 'Features' not in st.session_state:
+    st.session_state.Features = {
+        'From Start to Fluent': 'PicoPacho dynamically adjusts to all skill levels.',
+        'Missions': 'Set your own missions or ask around! Characters throw you into memorable encounters right from the start.',
+        'Endless Encounters': 'Whether you\'re starting a cult or a new job, everything is generated with AI just for you.',
+        'Leaderboard': 'Compete on a global leaderboard for in-game rewards!',
+    }
+
+
+
 def FakeStream(text):
     for char in text:
         time.sleep(0.02)
         yield char
         
 def displayFAQs():
-    
-    with st.expander("What is Pico Pedro?"):
+
+    with st.expander("What is PicoPacho?"):
         st.text("""PicoPacho is a language learning game, in an infinite AI-generated world.  Learning a language is extremely hard, and can take months of effort just to get up and running. Staring at a textbook is not memorable experience at all, but sailing across the Atlantic would be!\n\nBabies (and adults) remember experiences, not conjugations, so we've set up PicoPacho to put you in memorable experiences right from the start!""")
     with st.expander("How does it work?"):
-        st.text("PicoPacho is a browser game, (app coming soon!). Talk to characters in your target language, visit new locations, collect items, and set your own missions. The game is a true sandbox, You can direct the game to specific situations you want to practice, or let the game lead the way.\n\nPicoPacho is free to play for ~25 moves per day. If you are finding it works for you, you can upgrade to a paid subscription to unlock unlimited playtime.")
+        st.text("PicoPacho is a browser game, talk to characters in your target language, visit new locations, collect items, and set your own missions. The game is a true sandbox, You can direct the game to specific situations you want to practice, or let the game lead the way.\n\nPicoPacho is free to play for ~25 moves per day. If you are finding it works for you, you can upgrade to  a paid subscription to unlock unlimited playtime.")
     
     with st.expander("What languages are supported?"):
         st.write("Currently, PicoPacho supports English, French and German. We are working on adding more languages soon!")
@@ -71,20 +81,29 @@ def RenderDesktop():
     links = {
         'blank': 'blank',
         'blank2': 'blank2',
-        'Home': 'https://www.picopedro.com',
+        'Home': 'www.joinpicopacho.streamlit.app',
         'Start Game': App_Link,
-        'PachoNotes': 'https://www.picopedro.com',
-        'Leaderboard': 'https://www.picopedro.com'
+        'PachoNotes': 'www.joinpicopacho.streamlit.app',
+        'Leaderboard': 'www.joinpicopacho.streamlit.app'
     }
 
+    with stylable_container(
+        key="header_container",
+        css_styles="""
+        {
+            
+            
+            margin-top: -150px;
+        }
+        """
+    ):
+        Headercols = st.columns([1, 2, 1, 1, 1, 1, 3])
+        with Headercols[0]:
+            st.markdown("<img src='app/static/Images/Logos/Logo_Med.png' style='margin-top: 0px;'>", unsafe_allow_html=True)
 
-    Headercols = st.columns([1, 2, 1, 1, 1, 1, 3])
-    with Headercols[0]:
-        st.markdown("<img src='app/static/Images/Logos/Logo_Med.png' style='margin-top: 0px;'>", unsafe_allow_html=True)
-
-    for i in range(2, 6):
-        with Headercols[i]:
-            st.link_button(list(links.keys())[i], links[list(links.keys())[i]], type = 'tertiary', use_container_width=True)
+        for i in range(2, 6):
+            with Headercols[i]:
+                st.link_button(list(links.keys())[i], links[list(links.keys())[i]], type = 'tertiary', use_container_width=True)
 
 
     # --- HERO SECTION ---
@@ -104,7 +123,7 @@ def RenderDesktop():
                     margin-top: -10px;
                     max-width: 70%;
                 ">
-                    Automatic language aquisition is the cheatcode to fluency.
+                    "Enjoy what you do, and you'll never work a day in your life." - Mark Twain
                 </p>
                 """,
                 unsafe_allow_html=True
@@ -217,7 +236,7 @@ def RenderDesktop():
                     border: none;
                     border-radius: 20px;
                     background-color: #FFFFFF;
-                    height: 500px;
+                    
                     z-index: 1000;
                 }
                 """,):
@@ -227,22 +246,35 @@ def RenderDesktop():
                     content_cols = st.columns([1, 6, 6, 1])
                     with content_cols[1]:
                         st.container(border = False, height = 32)
-                        st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>Find your adventure</h1>", unsafe_allow_html=True)
-                        st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>Set sail for a pirates paradise, or start a rebellion in a corporate cyberpunk world. Every word you learn is another tool to carve your own story.</p>", unsafe_allow_html=True)
-                    
-                    imagesizer = st.columns([1.2, 1])
-                    with imagesizer[1]:
+                        st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px; color: #A4A9BA;'>Explore</p>", unsafe_allow_html=True)
+                        st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>Start your adventure</h1>", unsafe_allow_html=True)
+                        st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>Full realism, or play through your favorite movie? Every word you learn becomes another tool to carve your story.</p>", unsafe_allow_html=True)
+                    with content_cols[2]:
                         #set z-index to 1000
-                        st.markdown(f"<img src='app/static/Images/Boatyard.png' style='margin-top: -250px; float: right; margin-right: 10%;'>", unsafe_allow_html=True)
+                        st.markdown(f"<img src='app/static/Images/AdventureDesktop.png' style='margin-top: 0px; float: right; margin-right: 0%;width: 100%; height:100%;'>", unsafe_allow_html=True)
 
 
     st.container(border = False, height = 32)
 
-    cssstyles = """
+    cssstylesPK = """
                 {
-                    border: none;
+                    border: 1px solid rgb(238, 239, 241);
                     border-radius: 20px;
-                    background-color: #FFFFFF;
+                    background-image: url('app/static/Images/D_ProfessorPachoBG.png');
+                    background-size: cover;
+                    height: 700px;
+                    padding: 80px;
+                    margin-top: -50px;
+                }
+                """
+    cssstylesChar = """
+                {
+                    border: 1px solid rgb(238, 239, 241);
+                    background-image: url('app/static/Images/D_CharactersCardBG.png');
+                    background-size: cover;
+                    background-position: bottom;
+                    
+                    border-radius: 20px;
                     height: 700px;
                     padding: 80px;
                     margin-top: -50px;
@@ -256,40 +288,35 @@ def RenderDesktop():
     with col1:
             with stylable_container(
             key="container_with_border2",
-            css_styles=cssstyles):
+            css_styles=cssstylesPK):
                 with st.container():
-                    
-                    st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>Pocket Tutor</h1>", unsafe_allow_html=True)
-                    st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>Your on-the-go personal tutor offers advice and key words to makelearning a language feel like magic.</p>", unsafe_allow_html=True)
-                    content_cols = st.columns([1,10, 1])
+                    st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px; color: #A4A9BA;'>Learn</p>", unsafe_allow_html=True)
+                    st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>Professor Pacho</h1>", unsafe_allow_html=True)
+                    st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>Your 24/7 tutor is ready to take you to the next level! Hot tips and questions answered.</p>", unsafe_allow_html=True)
+                    content_cols = st.columns([1, 10, 1])
                     with content_cols[1]:
                         st.container(border = False, height = 45)
-                        st.markdown(f"<img src='app/static/Images/PocketTutor.png' style='margin-top: 0px; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
+                        st.markdown(f"<img src='app/static/Images/D_ProfessorPacho.png' style='margin-top: 0px; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
             
     with col2:
         with stylable_container(
             key="container_with_border3",
-            css_styles=cssstyles):
+            css_styles=cssstylesChar):
                 with st.container():
+                    st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px; color: #A4A9BA;'>Discover</p>", unsafe_allow_html=True)
 
-                    st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>Infinite Characters</h1>", unsafe_allow_html=True)
-                    st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>Negotiate hostage transfers with the chieftain of the northern tribes, or  just order a coffee. Level up your language skills without realising.</p>", unsafe_allow_html=True)
+                    st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>Infinite Cast of Characters</h1>", unsafe_allow_html=True)
+                    st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>Scheme with your fellow rebels, or order a coffee, Level up your language without even realizing.</p>", unsafe_allow_html=True)
                     st.container(border = False, height = 35)
-                    st.markdown(f"<img src='app/static/Images/Characters.png' style='margin-top: 0px; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
+                    st.markdown(f"<img src='app/static/Images/D_Characters.png' style='margin-top: 0px; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
 
 
 
 
     # --- WE MAKE SPEAKERS ---
+    st.container(border = False, height = 64)
     with st.container():
-        st.container(border = False, height = 100)
-        st.markdown(f"<img src='app/static/Images/Lorals.png' style='margin-top: 0px; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
-        cols = st.columns([1, 1.3, 1])
-        
-        with cols[1]:
-            
-            st.markdown("<h1 style='text-align: center; font-size: 38px; font-weight: 600; margin-top: -160px;'>We Make Speakers</h1>", unsafe_allow_html=True)
-            st.markdown("<p style='text-align: center; font-size: 16px; font-weight: 400; margin-top: -110px;'>The grammar, the verbs, the tenses are great late game, but all get in the way of step one, to understand and to be understood.</p>", unsafe_allow_html=True)
+        st.markdown("<img src='app/static/Images/SpeakersMadeHere.png' style='margin-top: 0px; display: block; margin-left: auto; margin-right: auto; width: 30%;'>", unsafe_allow_html=True)
         
     # --- FEATURES ---
     st.container(border = False, height = 32)
@@ -299,8 +326,15 @@ def RenderDesktop():
                     border: none;
                     border-radius: 20px;
                     background-color: #FFFFFF;
-                    height: 300px;
+                    height: 350px;
                     padding: 30px;
+                }
+                a:hover{
+                    background-color: #000000;
+                    border: 1px solid rgb(211, 211, 211);
+                    border-radius: 20px;
+                    box-shadow: 0px 0px 12px 0px rgba(157, 78, 221, 0.5);
+                    color: #000000;
                 }
                 """
     col1, col2, col3, col4 = st.columns(4)
@@ -314,138 +348,156 @@ def RenderDesktop():
             key="container_with_border4",
             css_styles=cssstyles):
             st.container(border = False, height = upperpad)
-            st.markdown(f"<img src='app/static/Images/FromStartToFluent.png' style='margin-top: 0px; height: 30px;'>", unsafe_allow_html=True)
+            st.markdown(f"<img src='app/static/Images/Icons/StartToFluent.png' style='margin-top: 0px;'>", unsafe_allow_html=True)
             st.container(border = False, height = lowerpad)
             
-            st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>From start to fluent</h1>", unsafe_allow_html=True)
-            st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>Take your experience to match you where you are. Pico Pedro dynamically adjusts to all skill levels.</p>", unsafe_allow_html=True)
+            st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>From Start to Fluent</h1>", unsafe_allow_html=True)
+            st.markdown(f"<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>{st.session_state.Features['From Start to Fluent']}</p>", unsafe_allow_html=True)
     with col2:
         with stylable_container(
             key="container_with_border5",
             css_styles=cssstyles):
             st.container(border = False, height = upperpad)
-            st.markdown(f"<img src='app/static/Images/Missions.png' style='margin-top: 0px; height: 30px;'>", unsafe_allow_html=True)
+            st.markdown(f"<img src='app/static/Images/Icons/Missions.png' style='margin-top: 0px;'>", unsafe_allow_html=True)
             st.container(border = False, height = lowerpad)
             st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>Missions</h1>", unsafe_allow_html=True)
-            st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>Get your own mission or ask around! Characters will throw you into memorable encounters right from the start.</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>{st.session_state.Features['Missions']}</p>", unsafe_allow_html=True)
     with col3:
         with stylable_container(
             key="container_with_border6",
             css_styles=cssstyles):
             st.container(border = False, height = upperpad)
-            st.markdown(f"<img src='app/static/Images/EndlessEncounters.png' style='margin-top: 0px; height: 30px;'>", unsafe_allow_html=True)
+            st.markdown(f"<img src='app/static/Images/Icons/EndlessEncounters.png' style='margin-top: 0px;'>", unsafe_allow_html=True)
             st.container(border = False, height = lowerpad)
-            st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>Endless encounters</h1>", unsafe_allow_html=True)
-            st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>Whether you're starting a cult or a new job, everything is generated just for you.</p>", unsafe_allow_html=True)
+            st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>Endless Encounters</h1>", unsafe_allow_html=True)
+            st.markdown(f"<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>{st.session_state.Features['Endless Encounters']}</p>", unsafe_allow_html=True)
     with col4:
         with stylable_container(
             key="container_with_border7",
             css_styles=cssstyles):
             st.container(border = False, height = upperpad)
-            st.markdown(f"<img src='app/static/Images/Leaderboard.png' style='margin-top: 0px; height: 30px;'>", unsafe_allow_html=True)
+            st.markdown(f"<img src='app/static/Images/Icons/Leaderboard.png' style='margin-top: 0px;'>", unsafe_allow_html=True)
             st.container(border = False, height = lowerpad)
             st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>Leaderboard</h1>", unsafe_allow_html=True)
-            st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>Compete on a global leaderboard for in-game rewards!</p>", unsafe_allow_html=True)
-
-    # --- TESTIMONIALS ---
-
-    # st.container(border = False, height = 32)
-
-    # Testemonials = [
-    #     {
-    #         "image": "static/Images/Peachhee.png",
-    #         "name": "Peachhee",
-    #         "country": "🇺🇸",
-    #         "testimonial": "Absolute game changer 🙌"
-    #     },
-    #     {
-    #         "image": "static/Images/Jennifer.png",
-    #         "name": "Jennifer W",
-    #         "country": "🇬🇧",
-    #         "testimonial": "Never thought i'd get back into learning spanish, but this has been amazing fun!"
-    #     },
-    #     {
-    #         "image": "static/Images/Davixx.png",
-    #         "name": "Davixx",
-    #         "country": "🇫🇷",
-    #         "testimonial": "I cannot believe this isnt how it's taught in schools. I went from knowing 0 german to being able to hold a real conversation in under 2 weeks!"
-    #     }
-    # ]
-
-
-    # cssstyles = """
-    #             {
-    #                 border: none;
-    #                 border-radius: 20px;
-    #                 background-color: #E7E7E7;
-    #                 height: 400px;
-    #                 padding: 30px;
-    #             }
-    #             """
-    # testemonialcols = st.columns([1, 1, 1])
-
-    # for count, testimonial in enumerate(Testemonials):
-    #     with testemonialcols[count]:
-    #             with stylable_container(
-    #         key=f"container_with_border{count}{testimonial['name']}",
-    #         css_styles=cssstyles):
-    #                 st.container(border = False, height = 32)
-    #                 with st.container(border = False, height = 300):
-    #                     st.markdown(f"<p style='text-align: left; font-size: 20px; font-weight: 400; margin-top: 0px;'>{testimonial['testimonial']}</p>", unsafe_allow_html=True)
-                    
-    #                 st.divider()
-
-
-    #                 st.markdown(f"<p style='text-align: left; font-size: 24px; font-weight: 400; margin-top: -10px;'>{testimonial['name']}</p>", unsafe_allow_html=True)
-    #                 st.markdown(f"<p style='text-align: left; font-size: 12px; font-weight: 400; margin-top: -10px;'>{testimonial['country']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>{st.session_state.Features['Leaderboard']}</p>", unsafe_allow_html=True)
 
 
     # --- FAQ ---
     st.container(border = False, height = 64)
     with st.container():
         st.markdown("<h1 style='text-align: center; font-size: 38px; font-weight: 600;'>FAQ</h1>", unsafe_allow_html=True)
-        faqcols = st.columns([1, 3.32, 1])
-        with faqcols[1]:
-            with st.expander("What is Pico Pedro?"):
-                st.write("Learning a language is traditionally extremely hard, and takes months of concious effort to get up and running. PicoPedro flips this on its head by incentivsing you to learn as a byproduct of a great time. Staring at a textbook is not memorable experience at all, but sailing across the atlantic is. We've set up PicoPedro to make you learn like a baby, no grammar, no tenses, no conjugations, Your brain unconciously maps sounds to experiences!")
-            with st.expander("How does it work?"):
-                st.write("PicoPedro is a browser game, (app coming soon!). The game is a true sandbox, You can set your own missions and adventures, or let the game lead the way. The game is free to play, however it is limited use per day. You can upgrade to a paid subscription to unlock unlimited playtime.")
-            with st.expander("How do I get started?"):
-                st.write("Click the button, sign in, and start playing!")
-                st.link_button("Enter World",url=App_Link, type = 'primary')
-            
+        cols = st.columns([1, 2, 1])
+        with cols[1]:
+            displayFAQs()
 
-    # --- BETA NOW LIVE ---
-    st.container(border = False, height = 64)
-    cssstyles = """
-                {
-                    border: none;
-                    background-image: url('app/static/Images/Purp2.png');
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    border-radius: 20px;
-                    
-                    height: 400px;
-                    padding: 30px;
-                }
-                """
 
-    cols = st.columns([1, 10, 1])
+    # #windmill footer
+    st.container(border = False, height = 150)
+    cols = st.columns([1, 4, 6, 1])
     with cols[1]:
+        st.container(border = False, height = 64)
+        st.markdown("<img src='app/static/Images/PlayForFree.png' style='margin-top: -50px; display: block; margin-left: auto; margin-right: auto; width: 100%;'>", unsafe_allow_html=True)
+
+        st.container(border = False, height = 32)
+
+        #start game button
         with stylable_container(
-            key="container_with_border8",
+            key="start_game_button_white_desktop",
+            css_styles="""
+            a {
+                background-color: #FFFFFF;
+                border-radius: 100px;
+                border: 1px solid rgb(211, 211, 211);
+                color: #000000;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                height: 70px;
+                box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+                border: 1px solid rgb(211, 211, 211);
+                float: inherit;
+            }
+            a:hover{
+                background-image: None;
+                background-color: #FFFFFF;
+                box-shadow: 0px 0px 12px 0px rgba(157, 78, 221, 0.5);
+                color: #000000;
+            }
+
+            """
+        ):
+            butcols = st.columns([5, 5, 5])
+            with butcols[1]:
+                st.link_button("Start Game", url=App_Link, type = "secondary", use_container_width=True)
+
+
+
+
+
+    with cols[2]:
+        st.markdown(f"<img src='app/static/Images/WindmillFooterLargeCropped.png' style='margin-top: 0px; float: right; margin-right: 10%;'>", unsafe_allow_html=True)
+    
+
+    cssstyles = """
+    {
+    background-image: url('app/static/Images/White.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+    margin-top: -50px;
+    box-shadow: 0px 200px 0px 200px rgba(255, 255, 255, 1);
+    }
+    """
+    with stylable_container(
+        key="footer_container",
+        css_styles=cssstyles):
+        
+
+        st.container(border=False, height=180)
+        st.markdown("<img src='app/static/Images/Logos/Logo_Blackout_Med.png' style='margin-top: 0px; width: 200px;'>", unsafe_allow_html=True)
+        st.container(border=False, height=20)
+
+        st.markdown("<p style='text-align: left; color: #A4A9BA; font-size: 12px; font-weight: 400; padding-left: 20px;'>S i t e</p>", unsafe_allow_html=True)
+        
+        cssstyles = """
+            a {
+                border: none;
+                background-color: transparent;
+                font-size: 16px;
+                font-weight: 400;
+                padding-left: 20px;
+                padding-right: 20px;
+                
+            }
+            """
+        with stylable_container(
+            key="footer_links",
             css_styles=cssstyles):
-            with st.container():
-                contentcols = st.columns([3, 5, 12, 1])
-                with contentcols[1]:
-                    st.container(border = False, height = 96)
-                    st.markdown("<h1 style='text-align: left; font-size: 32px; font-weight: 600;'>Beta Now Live!</h1>", unsafe_allow_html=True)
-                    st.link_button("Enter World", url=App_Link, type = 'primary')
+            st.link_button("Home", 'www.joinpicopacho.streamlit.app', type="tertiary")
+            st.container(border=False, height=1)
+            st.link_button("Start Game", url=App_Link, type="tertiary")
+            st.link_button("PachoNotes", 'www.joinpicopacho.streamlit.app', type="tertiary")
+            st.link_button("Leaderboard", 'www.joinpicopacho.streamlit.app', type="tertiary")
+            st.link_button("Invite to Earn", 'www.joinpicopacho.streamlit.app', type="tertiary")
+            st.link_button("Give Feedback", 'www.joinpicopacho.streamlit.app', type="tertiary")
+        
+        st.container(border=False, height=20)
 
-                with contentcols[2]:
+        st.markdown("<p style='text-align: left; color: #A4A9BA; font-size: 12px; font-weight: 400; padding-left: 20px;'>C o m m u n i t y</p>", unsafe_allow_html=True)
 
-                    st.markdown(f"<img src='app/static/Images/BetaGardens.png' style='margin-top: -120px; float: right;'>", unsafe_allow_html=True)
+        with stylable_container(
+            key="footer_community_links",
+            css_styles=cssstyles):
+            st.link_button("Discord", 'www.joinpicopacho.streamlit.app', type="tertiary")
+            st.container(border=False, height=1)
+            st.link_button("Youtube", 'www.joinpicopacho.streamlit.app', type="tertiary")
+            st.link_button("Twitter/X", 'www.joinpicopacho.streamlit.app', type="tertiary")
+
+    
+
+
 
 
 def RenderMobile():
@@ -497,11 +549,11 @@ def RenderMobile():
                 }
                 """):
 
-                st.link_button("Home", 'https://www.picopedro.com', type="tertiary")
+                st.link_button("Home", 'www.joinpicopacho.streamlit.app', type="tertiary")
                 st.container(border=False, height=1)
                 st.link_button("Start Game", url=App_Link, type="tertiary")
-                st.link_button("PachoNotes", 'https://www.picopedro.com', type="tertiary")
-                st.link_button("Leaderboard", 'https://www.picopedro.com', type="tertiary")
+                st.link_button("PachoNotes", 'www.joinpicopacho.streamlit.app', type="tertiary")
+                st.link_button("Leaderboard", 'www.joinpicopacho.streamlit.app', type="tertiary")
             
         
         
@@ -671,7 +723,7 @@ def RenderMobile():
     
     # --- FEATURES ---
     features = [
-        {"icon": "static/Images/Icons/StartToFluent.png", "title": "From start to fluent", "text": "Take your experience to match you where you are. Pico Pedro dynamically adjusts to all skill levels."},
+        {"icon": "static/Images/Icons/StartToFluent.png", "title": "From start to fluent", "text": "Take your experience to match you where you are. Pico Pacho dynamically adjusts to all skill levels."},
         {"icon": "static/Images/Icons/Missions.png", "title": "Missions", "text": "Get your own mission or ask around! Characters will throw you into memorable encounters right from the start."},
         {"icon": "static/Images/Icons/EndlessEncounters.png", "title": "Endless encounters", "text": "Whether you're starting a cult or a new job, everything is generated just for you."},
         {"icon": "static/Images/Icons/Leaderboard.png", "title": "Leaderboard", "text": "Compete on a global leaderboard for in-game rewards!"}]
@@ -749,13 +801,13 @@ def RenderMobile():
     with stylable_container(
         key="footer_links",
         css_styles=cssstyles):
-        st.link_button("Home", 'https://www.picopedro.com', type="tertiary")
+        st.link_button("Home", 'www.joinpicopacho.streamlit.app', type="tertiary")
         st.container(border=False, height=1)
         st.link_button("Start Game", url=App_Link, type="tertiary")
-        st.link_button("PachoNotes", 'https://www.picopedro.com', type="tertiary")
-        st.link_button("Leaderboard", 'https://www.picopedro.com', type="tertiary")
-        st.link_button("Invite to Earn", 'https://www.picopedro.com', type="tertiary")
-        st.link_button("Give Feedback", 'https://www.picopedro.com', type="tertiary")
+        st.link_button("PachoNotes", 'www.joinpicopacho.streamlit.app', type="tertiary")
+        st.link_button("Leaderboard", 'www.joinpicopacho.streamlit.app', type="tertiary")
+        st.link_button("Invite to Earn", 'www.joinpicopacho.streamlit.app', type="tertiary")
+        st.link_button("Give Feedback", 'www.joinpicopacho.streamlit.app', type="tertiary")
     
     st.container(border=False, height=20)
 
@@ -764,10 +816,10 @@ def RenderMobile():
     with stylable_container(
         key="footer_community_links",
         css_styles=cssstyles):
-        st.link_button("Discord", 'https://www.picopedro.com', type="tertiary")
+        st.link_button("Discord", 'www.joinpicopacho.streamlit.app', type="tertiary")
         st.container(border=False, height=1)
-        st.link_button("Youtube", 'https://www.picopedro.com', type="tertiary")
-        st.link_button("Twitter/X", 'https://www.picopedro.com', type="tertiary")
+        st.link_button("Youtube", 'www.joinpicopacho.streamlit.app', type="tertiary")
+        st.link_button("Twitter/X", 'www.joinpicopacho.streamlit.app', type="tertiary")
 
     
 
