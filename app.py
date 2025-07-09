@@ -793,13 +793,13 @@ def RenderMobile():
         st.link_button("Twitter/X", 'https://www.picopedro.com', type="tertiary")
 
     
-if 'ua_string' not in st.session_state:
-    st.session_state.ua_string = 'None'
 
-while st.session_state.ua_string is None or st.session_state.ua_string == "None":
-    st.session_state.ua_string = str(st_javascript("""window.navigator.userAgent;"""))
+
+ua_string = None
+while ua_string is None or ua_string == "None":
+    ua_string = str(st_javascript("""window.navigator.userAgent;"""))
     time.sleep(1)
-user_agent = parse(st.session_state.ua_string)
+user_agent = parse(ua_string)
 st.session_state.is_session_pc = bool(user_agent.is_pc)
 print('here: ')
 print(st.session_state.is_session_pc)
