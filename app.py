@@ -796,9 +796,9 @@ def RenderMobile():
 if 'ua_string' not in st.session_state:
     st.session_state.ua_string = 'None'
 
-while st.session_state.ua_string == "None":
+while st.session_state.ua_string is None or st.session_state.ua_string == "None":
     st.session_state.ua_string = str(st_javascript("""window.navigator.userAgent;"""))
-    time.sleep(0.1)
+    time.sleep(1)
 user_agent = parse(st.session_state.ua_string)
 st.session_state.is_session_pc = bool(user_agent.is_pc)
 print('here: ')
