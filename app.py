@@ -246,8 +246,8 @@ def RenderDesktop():
                     content_cols = st.columns([1, 6, 6, 1])
                     with content_cols[1]:
                         st.container(border = False, height = 32)
-                        st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px; color: #A4A9BA;'>Explore</p>", unsafe_allow_html=True)
-                        st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>Start your adventure</h1>", unsafe_allow_html=True)
+                        st.markdown("<p style='text-align: left; font-size: 12px; font-weight: 400; margin-top: 0px; color: #A4A9BA;'>Explore</p>", unsafe_allow_html=True)
+                        st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600; margin-top: -20px;'>Start your adventure</h1>", unsafe_allow_html=True)
                         st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>Full realism, or play through your favorite movie? Every word you learn becomes another tool to carve your story.</p>", unsafe_allow_html=True)
                     with content_cols[2]:
                         #set z-index to 1000
@@ -273,7 +273,7 @@ def RenderDesktop():
                     background-image: url('app/static/Images/D_CharactersCardBG.png');
                     background-size: cover;
                     background-position: bottom;
-                    
+                    height: 700px;
                     border-radius: 20px;
                     height: 700px;
                     padding: 80px;
@@ -290,25 +290,28 @@ def RenderDesktop():
             key="container_with_border2",
             css_styles=cssstylesPK):
                 with st.container():
-                    st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px; color: #A4A9BA;'>Learn</p>", unsafe_allow_html=True)
-                    st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>Professor Pacho</h1>", unsafe_allow_html=True)
+                    st.markdown("<p style='text-align: left; font-size: 12px; font-weight: 400; margin-top: 0px; color: #A4A9BA;'>Learn</p>", unsafe_allow_html=True)
+                    st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600; margin-top: -20px;'>Professor Pacho</h1>", unsafe_allow_html=True)
                     st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>Your 24/7 tutor is ready to take you to the next level! Hot tips and questions answered.</p>", unsafe_allow_html=True)
+                    st.container(border = False, height = 90)
                     content_cols = st.columns([1, 10, 1])
                     with content_cols[1]:
-                        st.container(border = False, height = 45)
+                        
                         st.markdown(f"<img src='app/static/Images/D_ProfessorPacho.png' style='margin-top: 0px; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
+                    st.container(border = False, height = 16)
             
     with col2:
         with stylable_container(
             key="container_with_border3",
             css_styles=cssstylesChar):
                 with st.container():
-                    st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px; color: #A4A9BA;'>Discover</p>", unsafe_allow_html=True)
+                    st.markdown("<p style='text-align: left; font-size: 12px; font-weight: 400; margin-top: 0px; color: #A4A9BA;'>Discover</p>", unsafe_allow_html=True)
 
-                    st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>Infinite Cast of Characters</h1>", unsafe_allow_html=True)
+                    st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600; margin-top: -20px;'>Infinite Cast of Characters</h1>", unsafe_allow_html=True)
                     st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>Scheme with your fellow rebels, or order a coffee, Level up your language without even realizing.</p>", unsafe_allow_html=True)
-                    st.container(border = False, height = 35)
+                    st.container(border = False, height = 90)
                     st.markdown(f"<img src='app/static/Images/D_Characters.png' style='margin-top: 0px; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
+                    st.container(border = False, height = 48)
 
 
 
@@ -434,20 +437,16 @@ def RenderDesktop():
 
 
     with cols[2]:
-        st.markdown(f"<img src='app/static/Images/WindmillFooterLargeCropped.png' style='margin-top: 0px; float: right; margin-right: 10%;'>", unsafe_allow_html=True)
+        st.markdown(f"<img src='app/static/Images/WindmillFooterLargeCropped.png' style='margin-top: 0px; float: right; margin-right: 10%; margin-bottom: -15px;'>", unsafe_allow_html=True)
     
 
     cssstyles = """
     {
-    background-image: url('app/static/Images/White.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 20px;
+    background-color: #FFFFFF;
     height: 100%;
     width: 100%;
-    margin-top: -50px;
-    box-shadow: 0px 200px 0px 200px rgba(255, 255, 255, 1);
+    margin-top: 0px;
+    box-shadow: 0px 500px 0px 500px rgba(255, 255, 255, 1);
     }
     """
     with stylable_container(
@@ -459,9 +458,9 @@ def RenderDesktop():
         st.markdown("<img src='app/static/Images/Logos/Logo_Blackout_Med.png' style='margin-top: 0px; width: 200px;'>", unsafe_allow_html=True)
         st.container(border=False, height=20)
 
-        st.markdown("<p style='text-align: left; color: #A4A9BA; font-size: 12px; font-weight: 400; padding-left: 20px;'>S i t e</p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: left; color: #A4A9BA; font-size: 12px; font-weight: 400; padding-left: 20px; letter-spacing: 0.6em;'>Site</p>", unsafe_allow_html=True)
         
-        cssstyles = """
+        cssstyles_footerlinks = """
             a {
                 border: none;
                 background-color: transparent;
@@ -474,7 +473,7 @@ def RenderDesktop():
             """
         with stylable_container(
             key="footer_links",
-            css_styles=cssstyles):
+            css_styles=cssstyles_footerlinks):
             st.link_button("Home", 'www.joinpicopacho.streamlit.app', type="tertiary")
             st.container(border=False, height=1)
             st.link_button("Start Game", url=App_Link, type="tertiary")
@@ -485,11 +484,11 @@ def RenderDesktop():
         
         st.container(border=False, height=20)
 
-        st.markdown("<p style='text-align: left; color: #A4A9BA; font-size: 12px; font-weight: 400; padding-left: 20px;'>C o m m u n i t y</p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: left; color: #A4A9BA; font-size: 12px; font-weight: 400; padding-left: 20px; letter-spacing: 0.6em;'>Community</p>", unsafe_allow_html=True)
 
         with stylable_container(
             key="footer_community_links",
-            css_styles=cssstyles):
+            css_styles=cssstyles_footerlinks):
             st.link_button("Discord", 'www.joinpicopacho.streamlit.app', type="tertiary")
             st.container(border=False, height=1)
             st.link_button("Youtube", 'www.joinpicopacho.streamlit.app', type="tertiary")
@@ -779,13 +778,13 @@ def RenderMobile():
 
     # --- FOOTER ---
     st.container(border=False, height=30)
-    st.markdown("<img src='app/static/Images/WindmillFooter.png' style='margin-top: 0px; width :500px;'>", unsafe_allow_html=True)
+    st.markdown("<img src='app/static/Images/WindmillFooter.png' style='margin-top: 0px; width :500px; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
 
     st.container(border=False, height=180)
     st.markdown("<img src='app/static/Images/Logos/Logo_Blackout_Med.png' style='margin-top: 0px; width: 200px;'>", unsafe_allow_html=True)
     st.container(border=False, height=20)
 
-    st.markdown("<p style='text-align: left; color: #A4A9BA; font-size: 12px; font-weight: 400; padding-left: 20px;'>S i t e</p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: left; color: #A4A9BA; font-size: 12px; font-weight: 400; padding-left: 20px; letter-spacing: 0.6em;'>Site</p>", unsafe_allow_html=True)
     
     cssstyles = """
         a {
@@ -811,7 +810,7 @@ def RenderMobile():
     
     st.container(border=False, height=20)
 
-    st.markdown("<p style='text-align: left; color: #A4A9BA; font-size: 12px; font-weight: 400; padding-left: 20px;'>C o m m u n i t y</p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: left; color: #A4A9BA; font-size: 12px; font-weight: 400; padding-left: 20px; letter-spacing: 0.6em;'>Community</p>", unsafe_allow_html=True)
 
     with stylable_container(
         key="footer_community_links",
