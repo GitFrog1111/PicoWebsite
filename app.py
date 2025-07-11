@@ -820,29 +820,33 @@ def RenderMobile():
 
     st.markdown("<p style='text-align: left; color: #A4A9BA; font-size: 12px; font-weight: 400; padding-left: 20px; letter-spacing: 0.6em;'>Site</p>", unsafe_allow_html=True)
     
-    cssstyles = """
+    cssstyles_footerlinks = """
         a {
-            border: none;
-            background-color: transparent;
-            font-size: 16px;
-            font-weight: 400;
             padding-left: 20px;
-            padding-right: 20px;
-            
         }
         """
+    cssstyles_footerlinks2 = """
+            button {
+            padding-left: 20px;
+        }
+        """
+    
     with stylable_container(
         key="footer_links",
-        css_styles=cssstyles):
-        st.link_button("Home", 'joinpicopacho.streamlit.app', type="tertiary")
+        css_styles=cssstyles_footerlinks):
+        st.link_button("Home", '/', type="tertiary")
         st.container(border=False, height=1)
         st.link_button("Start Game", url=App_Link, type="tertiary")
+    with stylable_container(
+        key="footer_links2",
+        css_styles=cssstyles_footerlinks2):
         if st.button("PachoNotes", type="tertiary", key="footer_pachonotes_button"):
             st.switch_page('pages/pachonotes.py')
+        st.container(border=False, height=1)
         if st.button("Leaderboard", type="tertiary", key="footer_leaderboard_button"):
             st.switch_page('pages/leaderboard.py')
-        #st.link_button("Invite to Earn", 'www.joinpicopacho.streamlit.app', type="tertiary")
-        #st.link_button("Give Feedback", 'www.joinpicopacho.streamlit.app', type="tertiary")
+    #st.link_button("Invite to Earn", 'www.joinpicopacho.streamlit.app', type="tertiary")
+    #st.link_button("Give Feedback", 'www.joinpicopacho.streamlit.app', type="tertiary")
     
     st.container(border=False, height=20)
 
@@ -850,13 +854,12 @@ def RenderMobile():
 
     with stylable_container(
         key="footer_community_links",
-        css_styles=cssstyles):
+        css_styles=cssstyles_footerlinks):
         st.link_button("Discord", 'https://discord.gg', type="tertiary")
         st.container(border=False, height=1)
         st.link_button("Youtube", 'https://www.youtube.com', type="tertiary")
         st.link_button("Twitter/X", 'https://x.com', type="tertiary")
 
-    
 
 
 ua_string = None
@@ -869,6 +872,7 @@ print('here: ')
 print(st.session_state.is_session_pc)
 if st.session_state.is_session_pc == True:
     RenderDesktop()
+    #RenderMobile()
 else:
     RenderMobile()
 
