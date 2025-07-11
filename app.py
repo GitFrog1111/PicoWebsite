@@ -442,7 +442,7 @@ def RenderDesktop():
 
             """
         ):
-            butcols = st.columns([5, 5, 5])
+            butcols = st.columns([5, 8, 5])
             with butcols[1]:
                 st.link_button("Start Game", url=App_Link, type = "tertiary", use_container_width=True)
 
@@ -802,17 +802,19 @@ def RenderMobile():
         st.container(border=False, height=10)
         st.link_button("Start Game", url=App_Link, type = "secondary")
 
-    # --- FOOTER ---
+    # --- FOOTER Image ---
     st.container(border=False, height=30)
     st.markdown("<img src='app/static/Images/WindmillFooter.png' style='margin-top: 0px; width :500px; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
-
-    
-    
-
-
-
-    
     st.container(border=False, height=180)
+
+
+
+
+
+
+
+
+    # --- FOOTER ---
     st.markdown("<img src='app/static/Images/Logos/Logo_Blackout_Med.png' style='margin-top: 0px; width: 200px;'>", unsafe_allow_html=True)
     st.container(border=False, height=20)
 
@@ -832,12 +834,12 @@ def RenderMobile():
     with stylable_container(
         key="footer_links",
         css_styles=cssstyles):
-        st.link_button("Home", '/', type="tertiary")
+        st.link_button("Home", '/', type="tertiary", key="footer_home_button")
         st.container(border=False, height=1)
-        st.link_button("Start Game", url=App_Link, type="tertiary")
-        if st.button("PachoNotes", type="tertiary"):
+        st.link_button("Start Game", url=App_Link, type="tertiary", key="footer_start_game_button")
+        if st.button("PachoNotes", type="tertiary", key="footer_pachonotes_button"):
             st.switch_page('pages/pachonotes.py')
-        if st.button("Leaderboard", type="tertiary"):
+        if st.button("Leaderboard", type="tertiary", key="footer_leaderboard_button"):
             st.switch_page('pages/leaderboard.py')
         #st.link_button("Invite to Earn", 'www.joinpicopacho.streamlit.app', type="tertiary")
         #st.link_button("Give Feedback", 'www.joinpicopacho.streamlit.app', type="tertiary")
