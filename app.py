@@ -834,9 +834,9 @@ def RenderMobile():
     with stylable_container(
         key="footer_links",
         css_styles=cssstyles):
-        st.link_button("Home", 'joinpicopacho.streamlit.app', type="tertiary", key="footer_home_button")
+        st.link_button("Home", 'joinpicopacho.streamlit.app', type="tertiary")
         st.container(border=False, height=1)
-        st.link_button("Start Game", url=App_Link, type="tertiary", key="footer_start_game_button")
+        st.link_button("Start Game", url=App_Link, type="tertiary")
         if st.button("PachoNotes", type="tertiary", key="footer_pachonotes_button"):
             st.switch_page('pages/pachonotes.py')
         if st.button("Leaderboard", type="tertiary", key="footer_leaderboard_button"):
