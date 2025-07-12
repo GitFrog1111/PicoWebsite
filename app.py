@@ -80,6 +80,9 @@ def displayFAQs():
     with st.expander("Where can I play?"):
         st.write("Currently, PICOPACHO is only available on desktop. Click the Start Game button below to start playing!")
 
+
+
+
 def RenderDesktop():
     links = {
         'blank': 'blank',
@@ -105,9 +108,23 @@ def RenderDesktop():
 
         
         with Headercols[2]:
-            st.link_button(list(links.keys())[2], links[list(links.keys())[2]], type = 'tertiary', use_container_width=True)
+            with stylable_container(
+                key="header_button",
+                css_styles="""
+                a:hover{
+                    background-color: transparent;
+                }
+                """):
+                st.link_button(list(links.keys())[2], links[list(links.keys())[2]], type = 'tertiary', use_container_width=True)
         with Headercols[3]:
-            st.link_button(list(links.keys())[3], links[list(links.keys())[3]], type = 'tertiary', use_container_width=True)
+            with stylable_container(
+                key="header_button2",
+                css_styles="""
+                a:hover{
+                    background-color: transparent;
+                }
+                """):
+                st.link_button(list(links.keys())[3], links[list(links.keys())[3]], type = 'tertiary', use_container_width=True)
 
         with Headercols[4]:
             if st.button(list(links.keys())[4], type = 'tertiary', use_container_width=True):
@@ -322,7 +339,7 @@ def RenderDesktop():
                     st.markdown("<p style='text-align: left; font-size: 12px; font-weight: 400; margin-top: 0px; color: #A4A9BA;'>Discover</p>", unsafe_allow_html=True)
 
                     st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600; margin-top: -20px;'>Infinite Cast of Characters</h1>", unsafe_allow_html=True)
-                    st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>Scheme with your fellow rebels, or order a coffee, Level up your language without even realizing.</p>", unsafe_allow_html=True)
+                    st.markdown("<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>Scheme with your fellow rebels, or order a coffee - level up your language without even realizing.</p>", unsafe_allow_html=True)
                     st.container(border = False, height = 90)
                     st.markdown(f"<img src='app/static/Images/D_Characters.png' style='margin-top: 0px; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
                     st.container(border = False, height = 48)
@@ -453,7 +470,7 @@ def RenderDesktop():
     with cols[2]:
         st.markdown(f"<img src='app/static/Images/WindmillFooterLargeCropped.png' style='margin-top: 0px; float: right; margin-right: 10%; margin-bottom: -15px;'>", unsafe_allow_html=True)
     
-
+    #white background
     cssstyles = """
     {
     background-color: #FFFFFF;
@@ -569,6 +586,12 @@ def RenderMobile():
                     text-align: right;
                     float: right;
                                         
+                }
+                button{
+                    border: none;
+                    border-radius: 20px;
+                    text-align: right;
+                    float: right;
                 }
                 """):
 
@@ -804,7 +827,7 @@ def RenderMobile():
 
     # --- FOOTER Image ---
     st.container(border=False, height=30)
-    st.markdown("<img src='app/static/Images/WindmillFooter.png' style='margin-top: 0px; width :500px; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
+    st.markdown("<img src='app/static/Images/WindmillFooter.png' style='margin-top: 0px; width :500px; display: block; margin-left: auto; margin-right: auto; border-radius: 20px;'>", unsafe_allow_html=True)
     st.container(border=False, height=180)
 
 
@@ -824,10 +847,18 @@ def RenderMobile():
         a {
             padding-left: 20px;
         }
+        a:hover{
+            background-color: transparent;
+            box-shadow: none;
+        }
         """
     cssstyles_footerlinks2 = """
             button {
             padding-left: 20px;
+            float:left;
+        }
+        a{
+            float:left;
         }
         """
     
@@ -865,7 +896,7 @@ def RenderMobile():
 ua_string = None
 while ua_string is None or ua_string == "None":
     ua_string = str(st_javascript("""window.navigator.userAgent;"""))
-    time.sleep(0.5)
+    time.sleep(0.9)
 user_agent = parse(ua_string)
 st.session_state.is_session_pc = bool(user_agent.is_pc)
 print('here: ')
