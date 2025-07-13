@@ -12,7 +12,7 @@ App_Link = "https://picopacho.streamlit.app/"
 
 # --- PAGE CONFIG ---
 st.set_page_config(
-    page_title="Pico Pacho",
+    page_title="PICOPACHO",
     page_icon="static/Images/Logos/Badge_Tiny.png",
     layout = 'wide',
     initial_sidebar_state="collapsed"
@@ -248,7 +248,7 @@ def RenderDesktop():
                     
 
             
-    st.container(border = False, height = 32)
+    st.container(border = False, height = 64)
     # --- GET FLUENT, FAST ---
     with st.container():
         st.markdown("<img src='app/static/Images/GetFluentFast.png' style='margin-top: 0px; display: block; margin-left: auto; margin-right: auto; width: 30%;'>", unsafe_allow_html=True)
@@ -348,7 +348,7 @@ def RenderDesktop():
 
 
     # --- WE MAKE SPEAKERS ---
-    st.container(border = False, height = 64)
+    st.container(border = False, height = 128)
     with st.container():
         st.markdown("<img src='app/static/Images/SpeakersMadeHere.png' style='margin-top: 0px; display: block; margin-left: auto; margin-right: auto; width: 30%;'>", unsafe_allow_html=True)
         
@@ -771,7 +771,7 @@ def RenderMobile():
     
     # --- FEATURES ---
     features = [
-        {"icon": "static/Images/Icons/StartToFluent.png", "title": "From start to fluent", "text": "Take your experience to match you where you are. Pico Pacho dynamically adjusts to all skill levels."},
+        {"icon": "static/Images/Icons/StartToFluent.png", "title": "From start to fluent", "text": "Take your experience to match you where you are. PICOPACHO dynamically adjusts to all skill levels."},
         {"icon": "static/Images/Icons/Missions.png", "title": "Missions", "text": "Get your own mission or ask around! Characters will throw you into memorable encounters right from the start."},
         {"icon": "static/Images/Icons/EndlessEncounters.png", "title": "Endless encounters", "text": "Whether you're starting a cult or a new job, everything is generated just for you."},
         {"icon": "static/Images/Icons/Leaderboard.png", "title": "Leaderboard", "text": "Compete on a global leaderboard for in-game rewards!"}]
