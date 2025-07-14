@@ -8,7 +8,7 @@ from user_agents import parse
 
 
 
-App_Link = "https://picopacho.streamlit.app/"
+App_Link = "https://app.picopacho.com/"
 
 # --- PAGE CONFIG ---
 st.set_page_config(
@@ -36,7 +36,7 @@ if 'RandomMessage' not in st.session_state:
     st.session_state.RandomMessage = 0
 
 Base_url = "http://localhost:8501"
-Base_url = "https://joinpicopacho.streamlit.app"
+Base_url = "https://picopacho.com"
 
 
 hide_st_style = """
