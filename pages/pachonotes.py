@@ -71,7 +71,7 @@ def Header():
             if st.button(list(links.keys())[4], type = 'tertiary', use_container_width=True):
                 st.switch_page('pages/pachonotes.py')
         with Headercols[5]:
-            if st.button(list(links.keys())[5], type = 'tertiary', use_container_width=True):
+            if st.button(list(links.keys())[5], type = 'tertiary', use_container_width=True, disabled=True):
                 st.switch_page('pages/leaderboard.py')
 
 def Footer():
