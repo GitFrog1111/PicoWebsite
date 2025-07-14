@@ -7,7 +7,7 @@ def Main():
 def Post1():
     R = st.container()
     with R:
-        st.image('app/static/Images/Pico/Logo_Large.png')
+        st.image('app/static/Images/Logos/Logo_Large.png')
         st.title('Pico Public Beta')
         st.caption('July 15, 2025')
         st.text("""Hello, Wie geht's!
