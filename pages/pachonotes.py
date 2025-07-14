@@ -1,5 +1,9 @@
 import streamlit as st
 
+st.set_page_config(page_title='Pico Notes',
+                   page_icon='app/static/Images/Logos/Badge_Tiny.png',
+                   layout='wide')
+
 
 def Main():
     Post1()
@@ -10,7 +14,7 @@ def Post1():
         st.markdown(f"<img src='app/static/Images/WindmillFooterLargeCropped.png' style='width: 50%; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
         st.title('Pico Public Beta')
         st.caption('July 15, 2025')
-        st.text("""Hello, Wie geht's!
+        st.text("""Hallo, Wie geht's?
                 We are excited to announce that PICOPACHO has now entered public beta! This is a huge milestone and we are super grateful for your support.
                 So what is PICOPACHO?
                 PICOPACHO is a game that helps you learn languages by speaking with AI.
