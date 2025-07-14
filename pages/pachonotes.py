@@ -43,7 +43,7 @@ def Header():
         key="header_container",
         css_styles="""
         {
-            margin-top: -120px;
+            margin-top: -108px;
         }
         """
     ):
