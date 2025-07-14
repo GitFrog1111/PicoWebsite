@@ -1,19 +1,96 @@
 import streamlit as st
+from streamlit_extras.stylable_container import stylable_container
+
+
 
 st.set_page_config(page_title='Pachonotes',
                    page_icon='app/static/Images/Logos/Badge_Tiny.png',
                    layout='wide')
 
 
+
+# force itim font
+st.markdown("""
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+body {
+    font-family: 'Itim', sans-serif;
+}     
+</style>
+""", unsafe_allow_html=True)
+
+
+hide_st_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        </style>
+        """
+st.markdown(hide_st_style, unsafe_allow_html=True)
+
+def Header():
+    links = {
+        'blank': 'blank',
+        'blank2': 'blank2',
+        'Home': '/',
+        'Start Game': 'app.picopacho.com',
+        'PachoNotes': 'pages/pachonotes.py',
+        'Leaderboard': 'pages/leaderboard.py'
+    }
+
+    with stylable_container(
+        key="header_container",
+        css_styles="""
+        {
+            margin-top: -150px;
+        }
+        """
+    ):
+        #             logo p home start game patchnotes leaderboard
+        Headercols = st.columns([1, 2, 1, 1, 1, 1, 3])
+        with Headercols[0]:
+            st.markdown("<img src='app/static/Images/Logos/Logo_Med.png' style='margin-top: 0px;'>", unsafe_allow_html=True)
+
+        
+        with Headercols[2]:
+            with stylable_container(
+                key="header_button",
+                css_styles="""
+                a:hover{
+                    background-color: transparent;
+                }
+                """):
+                st.link_button(list(links.keys())[2], links[list(links.keys())[2]], type = 'tertiary', use_container_width=True)
+        with Headercols[3]:
+            with stylable_container(
+                key="header_button2",
+                css_styles="""
+                a:hover{
+                    background-color: transparent;
+                }
+                """):
+                st.link_button(list(links.keys())[3], links[list(links.keys())[3]], type = 'tertiary', use_container_width=True)
+
+        with Headercols[4]:
+            if st.button(list(links.keys())[4], type = 'tertiary', use_container_width=True):
+                st.switch_page('pages/pachonotes.py')
+        with Headercols[5]:
+            if st.button(list(links.keys())[5], type = 'tertiary', use_container_width=True):
+                st.switch_page('pages/leaderboard.py')
+
+
 def Main():
+    Header()
+
     Post1()
 
 def Post1():
     R = st.container(border=False)
     with R:
-        st.markdown(f"<img src='app/static/Images/PachoNotes/DesertMarkt.png' style='width: 1500px; height: 500px; object-fit: cover; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
+        st.markdown(f"<img src='app/static/Images/PachoNotes/DesertMarkt.png' style='width: 100%; height: 25%; object-fit: cover; object-position: top; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
         with st.container(border=True):
-            st.title('Pico Public Beta')
+            st.title('Pico Public Beta Ver 0.9')
             st.caption('July 15, 2025')
             st.markdown("""
 <p>
@@ -36,7 +113,7 @@ It just so happened I was building a game to do tabletop RPG with AI, nice UI, m
 
 ### How does it work?
 
-Back to basics - babies learn through 'comprehensible input'. This is the combo of what is happening and what is being said... like dogs - If you say 'Walkies' once before a walk it means nothing, but that seconds time, they know exactly whats coming. Babies do not use Duolingo, they map sounds to experiences, and build understanding unconsciously. The thing is, this method does not go away, we just don’t consider it as adults, we prefer what we know to work with rules and defined paths and correctness - schooling. It's absolute wash.
+Back to basics - babies learn through 'comprehensible input'. This is the combo of what is happening and what is being said... like dogs - If you say 'Walkies' once before a walk it means nothing, but that second time, they know exactly what's coming. Babies do not use Duolingo, they map sounds to experiences, and build understanding unconsciously. The thing is, this method does not go away, we just don’t consider it as adults, we prefer to work with what we know, rules and defined paths and correctness - schooling. It's kind of ridiculous.
 
 PICOPACHO is founded on this idea, the best way to learn is attaching sounds to encounters. Your brain has incredible built-in circuits, spatial memory, facial recognition, motion detection - and yes, language acquisition - Nature however did not build this circuit from textbooks and conscious study, so why make it hard on yourself? PICOPACHO makes it fun, and actually faster, to learn a language. If you like what you see, join the discord and help shape the future of PICOPACHO.
 
