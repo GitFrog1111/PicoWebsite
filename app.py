@@ -371,7 +371,7 @@ def RenderDesktop():
                 """
     col1, col2, col3, col4 = st.columns(4)
 
-    upperpad = 70
+    upperpad = 90
     lowerpad = 1
     iconwidth = 20
 
