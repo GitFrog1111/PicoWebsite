@@ -34,7 +34,7 @@ def Header():
         'blank': 'blank',
         'blank2': 'blank2',
         'Home': 'https://picopacho.com',
-        'Start Game': 'app.picopacho.com',
+        'Start Game': 'https://app.picopacho.com',
         'PachoNotes': 'pages/pachonotes.py',
         'Leaderboard': 'pages/leaderboard.py'
     }
@@ -54,7 +54,7 @@ def Header():
 
         
         with Headercols[2]:
-            if st.button(list(links.keys())[2], links[list(links.keys())[2]], type = 'tertiary', use_container_width=True):
+            if st.button(list(links.keys())[2], type = 'tertiary', use_container_width=True):
                 st.switch_page('app.py')
 
         with Headercols[3]:
