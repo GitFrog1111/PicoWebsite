@@ -11,7 +11,7 @@ def Main():
 def Post1():
     R = st.container(border=False)
     with R:
-        st.markdown(f"<img src='app/static/Images/WindmillFooterLargeCropped.png' style='width: 75%; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
+        st.markdown(f"<img src='app/static/Images/PachoNotes/DesertMarkt.png' style='width: 75%; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
         with st.container(border=True):
             st.title('Pico Public Beta')
             st.caption('July 15, 2025')
