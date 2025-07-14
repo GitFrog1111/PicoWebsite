@@ -7,8 +7,6 @@ st.set_page_config(page_title='Pachonotes',
                    page_icon='app/static/Images/Logos/Badge_Tiny.png',
                    layout='wide')
 
-
-
 # force itim font
 st.markdown("""
 <style>
@@ -19,7 +17,6 @@ body {
 </style>
 """, unsafe_allow_html=True)
 
-
 hide_st_style = """
         <style>
         #MainMenu {visibility: hidden;}
@@ -29,11 +26,14 @@ hide_st_style = """
         """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
+
+
+
 def Header():
     links = {
         'blank': 'blank',
         'blank2': 'blank2',
-        'Home': '/',
+        'Home': 'https://picopacho.com',
         'Start Game': 'app.picopacho.com',
         'PachoNotes': 'pages/pachonotes.py',
         'Leaderboard': 'pages/leaderboard.py'
@@ -43,7 +43,7 @@ def Header():
         key="header_container",
         css_styles="""
         {
-            margin-top: -150px;
+            margin-top: -100px;
         }
         """
     ):
@@ -121,7 +121,7 @@ def Footer():
             css_styles=cssstyles_footerlinks):
             st.link_button("Home", '/', type="tertiary")
             st.container(border=False, height=1)
-            st.link_button("Start Game", url=App_Link, type="tertiary")
+            st.link_button("Start Game", url='app.picopacho.com', type="tertiary")
         with stylable_container(
             key="footer_links2",
             css_styles=cssstyles_footerlinks2):
@@ -158,7 +158,7 @@ def Main():
 def Post1():
     R = st.container(border=False)
     with R:
-        st.markdown(f"<img src='app/static/Images/PachoNotes/DesertMarkt.png' style='width: 100%; height: 25%; object-fit: cover; object-position: top; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
+        st.markdown(f"<img src='app/static/Images/PachoNotes/DesertMarkt.png' style='width: 100%; height: 300px; object-fit: cover; object-position: top; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
         with st.container(border=True):
             st.title('Pico Public Beta Ver 0.9')
             st.caption('July 15, 2025')
