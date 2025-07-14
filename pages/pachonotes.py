@@ -43,7 +43,7 @@ def Header():
         key="header_container",
         css_styles="""
         {
-            margin-top: -100px;
+            margin-top: -120px;
         }
         """
     ):
@@ -121,7 +121,7 @@ def Footer():
             css_styles=cssstyles_footerlinks):
             st.link_button("Home", '/', type="tertiary")
             st.container(border=False, height=1)
-            st.link_button("Start Game", url='app.picopacho.com', type="tertiary")
+            st.link_button("Start Game", url='https://app.picopacho.com', type="tertiary")
         with stylable_container(
             key="footer_links2",
             css_styles=cssstyles_footerlinks2):
