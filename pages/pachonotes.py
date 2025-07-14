@@ -5,12 +5,12 @@ def Main():
     Post1()
 
 def Post1():
-    R = st.container()
+    R = st.container(border=True)
     with R:
         st.markdown(f"<img src='app/static/Images/WindmillFooterLargeCropped.png' style='width: 50%; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
         st.title('Pico Public Beta')
         st.caption('July 15, 2025')
-        st.text("""Hello, Wie geht's!
+        st.markdown("""Hello, Wie geht's!
                 
                 We are excited to announce that PICOPACHO has now entered public beta! This is a huge milestone and we are super grateful for your support.
 
