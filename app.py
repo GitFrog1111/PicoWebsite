@@ -373,6 +373,7 @@ def RenderDesktop():
 
     upperpad = 70
     lowerpad = 1
+    iconwidth = 20
 
     with col1:
         
@@ -380,7 +381,7 @@ def RenderDesktop():
             key="container_with_border4",
             css_styles=cssstyles):
             st.container(border = False, height = upperpad)
-            st.markdown(f"<img src='app/static/Images/Icons/StartToFluent.png' style='margin-top: 0px; width: 50%;'>", unsafe_allow_html=True)
+            st.markdown(f"<img src='app/static/Images/Icons/StartToFluent.png' style='margin-top: 0px; width: {iconwidth}%;'>", unsafe_allow_html=True)
             
             st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>From Start to Fluent</h1>", unsafe_allow_html=True)
             st.markdown(f"<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>{st.session_state.Features['From Start to Fluent']}</p>", unsafe_allow_html=True)
@@ -389,7 +390,7 @@ def RenderDesktop():
             key="container_with_border5",
             css_styles=cssstyles):
             st.container(border = False, height = upperpad)
-            st.markdown(f"<img src='app/static/Images/Icons/Missions.png' style='margin-top: 0px; width: 50%;'>", unsafe_allow_html=True)
+            st.markdown(f"<img src='app/static/Images/Icons/Missions.png' style='margin-top: 0px; width: {iconwidth}%;'>", unsafe_allow_html=True)
 
             st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>Missions</h1>", unsafe_allow_html=True)
             st.markdown(f"<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>{st.session_state.Features['Missions']}</p>", unsafe_allow_html=True)
@@ -398,7 +399,7 @@ def RenderDesktop():
             key="container_with_border6",
             css_styles=cssstyles):
             st.container(border = False, height = upperpad)
-            st.markdown(f"<img src='app/static/Images/Icons/EndlessEncounters.png' style='margin-top: 0px; width: 50%;'>", unsafe_allow_html=True)
+            st.markdown(f"<img src='app/static/Images/Icons/EndlessEncounters.png' style='margin-top: 0px; width: {iconwidth}%;'>", unsafe_allow_html=True)
             
             st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>Endless Encounters</h1>", unsafe_allow_html=True)
             st.markdown(f"<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>{st.session_state.Features['Endless Encounters']}</p>", unsafe_allow_html=True)
@@ -407,7 +408,7 @@ def RenderDesktop():
             key="container_with_border7",
             css_styles=cssstyles):
             st.container(border = False, height = upperpad)
-            st.markdown(f"<img src='app/static/Images/Icons/Leaderboard.png' style='margin-top: 0px; width: 50%;'>", unsafe_allow_html=True)
+            st.markdown(f"<img src='app/static/Images/Icons/Leaderboard.png' style='margin-top: 0px; width: {iconwidth}%;'>", unsafe_allow_html=True)
             
             st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>Leaderboard</h1>", unsafe_allow_html=True)
             st.markdown(f"<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>{st.session_state.Features['Leaderboard']}</p>", unsafe_allow_html=True)
