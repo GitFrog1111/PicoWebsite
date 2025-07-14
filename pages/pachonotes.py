@@ -54,14 +54,9 @@ def Header():
 
         
         with Headercols[2]:
-            with stylable_container(
-                key="header_button",
-                css_styles="""
-                a:hover{
-                    background-color: transparent;
-                }
-                """):
-                st.link_button(list(links.keys())[2], links[list(links.keys())[2]], type = 'tertiary', use_container_width=True)
+            if st.button(list(links.keys())[2], links[list(links.keys())[2]], type = 'tertiary', use_container_width=True):
+                st.switch_page('app.py')
+
         with Headercols[3]:
             with stylable_container(
                 key="header_button2",
