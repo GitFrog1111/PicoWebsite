@@ -79,11 +79,81 @@ def Header():
             if st.button(list(links.keys())[5], type = 'tertiary', use_container_width=True):
                 st.switch_page('pages/leaderboard.py')
 
+def Footer():
+    #white background
+    cssstyles = """
+    {
+    background-color: #FFFFFF;
+    height: 100%;
+    width: 100%;
+    margin-top: 0px;
+    box-shadow: 0px 500px 0px 500px rgba(255, 255, 255, 1);
+    }
+    a:hover{
+        box-shadow: none;
+        border: none;
+    }
+    """
+    with stylable_container(
+        key="footer_container",
+        css_styles=cssstyles):
+        
+
+        st.container(border=False, height=180)
+        st.markdown("<img src='app/static/Images/Logos/Logo_Blackout_Med.png' style='margin-top: 0px; width: 200px;'>", unsafe_allow_html=True)
+        st.container(border=False, height=20)
+
+        st.markdown("<p style='text-align: left; color: #A4A9BA; font-size: 12px; font-weight: 400; padding-left: 20px; letter-spacing: 0.6em;'>Site</p>", unsafe_allow_html=True)
+        
+        cssstyles_footerlinks = """
+            a {
+                padding-left: 20px;
+            }
+            """
+        cssstyles_footerlinks2 = """
+                button {
+                padding-left: 20px;
+            }
+            """
+        
+        with stylable_container(
+            key="footer_links",
+            css_styles=cssstyles_footerlinks):
+            st.link_button("Home", '/', type="tertiary")
+            st.container(border=False, height=1)
+            st.link_button("Start Game", url=App_Link, type="tertiary")
+        with stylable_container(
+            key="footer_links2",
+            css_styles=cssstyles_footerlinks2):
+            if st.button("PachoNotes", type="tertiary"):
+                st.switch_page('pages/pachonotes.py')
+            st.container(border=False, height=1)
+            if st.button("Leaderboard", type="tertiary"):
+                st.switch_page('pages/leaderboard.py')
+        #st.link_button("Invite to Earn", 'www.joinpicopacho.streamlit.app', type="tertiary")
+        #st.link_button("Give Feedback", 'www.joinpicopacho.streamlit.app', type="tertiary")
+        
+        st.container(border=False, height=20)
+
+        st.markdown("<p style='text-align: left; color: #A4A9BA; font-size: 12px; font-weight: 400; padding-left: 20px; letter-spacing: 0.6em;'>Community</p>", unsafe_allow_html=True)
+
+        with stylable_container(
+            key="footer_community_links",
+            css_styles=cssstyles_footerlinks):
+            st.link_button("Discord", 'https://discord.gg', type="tertiary")
+            st.container(border=False, height=1)
+            st.link_button("Youtube", 'https://www.youtube.com', type="tertiary")
+            st.link_button("Twitter/X", 'https://x.com', type="tertiary")
+
+    
+
 
 def Main():
     Header()
 
     Post1()
+
+    Footer()
 
 def Post1():
     R = st.container(border=False)
