@@ -153,9 +153,9 @@ def Main():
 def Post1():
     R = st.container(border=False)
     with R:
-        st.markdown(f"<img src='app/static/Images/PachoNotes/DesertMarkt.png' style='width: 100%; height: 300px; object-fit: cover; object-position: top; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
+        st.markdown(f"<img src='app/static/Images/PachoNotes/DesertMarktLong.png' style='width: 100%; height: 500px; object-fit: cover; object-position: top; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
         with st.container(border=True):
-            st.title('Pico Public Beta Ver 0.9')
+            st.title('Pico Public Beta Ver 0.9.0')
             st.caption('July 15, 2025')
             st.markdown("""
 <p>
