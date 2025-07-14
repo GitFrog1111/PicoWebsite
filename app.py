@@ -19,9 +19,6 @@ st.set_page_config(
     
 )
 
-
-
-
 # force itim font
 st.markdown("""
 <style>
@@ -383,7 +380,7 @@ def RenderDesktop():
             key="container_with_border4",
             css_styles=cssstyles):
             st.container(border = False, height = upperpad)
-            st.markdown(f"<img src='app/static/Images/Icons/StartToFluent.png' style='margin-top: 0px;'>", unsafe_allow_html=True)
+            st.markdown(f"<img src='app/static/Images/Icons/StartToFluent.png' style='margin-top: 0px; width: 30%;'>", unsafe_allow_html=True)
             
             st.markdown("<h1 style='text-align: left; font-size: 24px; font-weight: 600;'>From Start to Fluent</h1>", unsafe_allow_html=True)
             st.markdown(f"<p style='text-align: left; font-size: 16px; font-weight: 400; margin-top: -10px;'>{st.session_state.Features['From Start to Fluent']}</p>", unsafe_allow_html=True)
