@@ -922,8 +922,10 @@ def RenderMobile():
             button {
             color: #A4A9BA;
             padding-left: 20px;
-            font-size: 8px;
-            font-weight: 400;
+            float:left;
+        }
+        a{
+            float:left;
         }
         """
     with stylable_container(
