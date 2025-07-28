@@ -888,6 +888,23 @@ def RenderMobile():
         st.container(border=False, height=1)
         st.link_button("Youtube", 'https://www.youtube.com', type="tertiary")
         st.link_button("Twitter/X", 'https://x.com', type="tertiary")
+    
+    st.container(border=False, height=20)
+
+    
+
+
+    with stylable_container(
+        key="footer_links3",
+        css_styles=cssstyles_footerlinks2):
+        if st.button("Privacy Policy", type="tertiary", key="footer_privacy_policy_button"):
+            st.switch_page('pages/privacy policy.py')
+        st.container(border=False, height=1)
+        # if st.button("Terms of Service", type="tertiary", key="footer_terms_of_service_button"):
+        #     st.switch_page('pages/Terms of Service.py')
+
+    st.markdown("<p style='text-align: left; color: #A4A9BA; font-size: 12px; font-weight: 400; padding-left: 20px;'>©2025 Post Infinity LTD</p>", unsafe_allow_html=True)
+
 
 
 
