@@ -528,10 +528,10 @@ def RenderDesktop():
         with stylable_container(
             key="footer_community_links",
             css_styles=cssstyles_footerlinks):
-            st.link_button("Discord", 'https://discord.gg', type="tertiary")
+            st.link_button("Discord", 'https://discord.gg/dWWTMdkQcn', type="tertiary")
             st.container(border=False, height=1)
-            st.link_button("Youtube", 'https://www.youtube.com', type="tertiary")
-            st.link_button("Twitter/X", 'https://x.com', type="tertiary")
+            st.link_button("Youtube", 'https://www.youtube.com/@picopacho', type="tertiary")
+            st.link_button("Twitter/X", 'https://x.com/blended_jpeg', type="tertiary")
 
         st.container(border=False, height=60)
 
@@ -909,10 +909,10 @@ def RenderMobile():
     with stylable_container(
         key="footer_community_links",
         css_styles=cssstyles_footerlinks):
-        st.link_button("Discord", 'https://discord.gg', type="tertiary")
+        st.link_button("Discord", 'https://discord.gg/dWWTMdkQ', type="tertiary")
         st.container(border=False, height=1)
-        st.link_button("Youtube", 'https://www.youtube.com', type="tertiary")
-        st.link_button("Twitter/X", 'https://x.com', type="tertiary")
+        st.link_button("Youtube", 'https://www.youtube.com/@picopacho', type="tertiary")
+        st.link_button("Twitter/X", 'https://x.com/blended_jpeg', type="tertiary")
     
     st.container(border=False, height=20)
 
